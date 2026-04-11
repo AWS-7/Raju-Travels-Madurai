@@ -169,3 +169,81 @@ export const goaItinerary: ItineraryDay[] = [
     highlight: 'Take home authentic Goan spices & cashews',
   },
 ];
+
+export const galleryImages = [
+  {
+    id: '1',
+    url: 'https://images.pexels.com/photos/1007426/pexels-photo-1007426.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Sunset at Palolem Beach',
+    location: 'Goa',
+  },
+  {
+    id: '2',
+    url: 'https://images.pexels.com/photos/2387871/pexels-photo-2387871.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Snowy Peaks of Manali',
+    location: 'Manali',
+  },
+  {
+    id: '3',
+    url: 'https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Crystal Clear Waters',
+    location: 'Andaman',
+  },
+  {
+    id: '4',
+    url: 'https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Dal Lake Houseboat',
+    location: 'Kashmir',
+  },
+  {
+    id: '5',
+    url: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Tea Garden Hills',
+    location: 'Munnar',
+  },
+  {
+    id: '6',
+    url: 'https://images.pexels.com/photos/1574843/pexels-photo-1574843.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Ooty Lake View',
+    location: 'Ooty',
+  },
+  {
+    id: '7',
+    url: 'https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Wayanad Wildlife',
+    location: 'Wayanad',
+  },
+  {
+    id: '8',
+    url: 'https://images.pexels.com/photos/2119713/pexels-photo-2119713.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Gulmarg Valley',
+    location: 'Kashmir',
+  },
+];
+
+export const galleryVideos = [
+  {
+    id: 'v1',
+    title: 'Goa Beach Adventure',
+    location: 'Goa',
+    duration: '2:34',
+    thumbnail: 'https://images.pexels.com/photos/1007426/pexels-photo-1007426.jpeg?auto=compress&cs=tinysrgb&w=800',
+    youtubeId: 'dQw4w9WgXcQ',
+  },
+  {
+    id: 'v2',
+    title: 'Manali Snow Experience',
+    location: 'Manali',
+    duration: '3:15',
+    thumbnail: 'https://images.pexels.com/photos/2387871/pexels-photo-2387871.jpeg?auto=compress&cs=tinysrgb&w=800',
+    youtubeId: 'dQw4w9WgXcQ',
+  },
+  {
+    id: 'v3',
+    title: 'Andaman Island Tour',
+    location: 'Andaman',
+    duration: '4:02',
+    thumbnail: 'https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=800',
+    youtubeId: 'dQw4w9WgXcQ',
+  },
+];

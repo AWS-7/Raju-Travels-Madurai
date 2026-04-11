@@ -7,6 +7,7 @@ const navLinks = [
   { label: 'Packages', href: '#packages' },
   { label: 'Destinations', href: '#destinations' },
   { label: 'Itinerary', href: '#itinerary' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'Book Now', href: '#booking' },
 ];
 

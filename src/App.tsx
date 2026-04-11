@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Packages from './components/Packages';
 import Destinations from './components/Destinations';
 import Itinerary from './components/Itinerary';
+import Gallery from './components/Gallery';
 import BookingSteps from './components/BookingSteps';
 import BookingForm from './components/BookingForm';
 import Footer from './components/Footer';
@@ -33,6 +34,7 @@ function App() {
       <Packages highlightDestination={searchDest} onBook={handleBook} />
       <Destinations onBook={handleBook} />
       <Itinerary />
+      <Gallery />
       <BookingSteps />
       <div ref={bookingRef}>
         <BookingForm defaultDestination={bookingDest} />
