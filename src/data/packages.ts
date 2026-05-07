@@ -151,34 +151,34 @@ export const packages: Package[] = [
 
 export const destinations: Destination[] = [
   {
-    name: 'Wayanad',
+    name: 'Chennai',
     image: 'https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tag: 'Nature & Wildlife',
+    tag: 'Gateway to South',
   },
   {
-    name: 'Munnar',
+    name: 'Pondicherry',
     image: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tag: 'Tea Gardens',
+    tag: 'French Quarter',
   },
   {
-    name: 'Ooty',
+    name: 'Madurai',
     image: 'https://images.pexels.com/photos/1574843/pexels-photo-1574843.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tag: 'Hill Station',
+    tag: 'Temple City',
   },
   {
-    name: 'Kodaikanal',
+    name: 'Thanjavur',
     image: 'https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tag: 'Princess of Hills',
+    tag: 'Heritage City',
   },
   {
-    name: 'Andaman',
+    name: 'Rameshwaram',
     image: 'https://images.pexels.com/photos/1450082/pexels-photo-1450082.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tag: 'Island Paradise',
+    tag: 'Holy Pilgrimage',
   },
   {
-    name: 'Kashmir',
+    name: 'Kanyakumari',
     image: 'https://images.pexels.com/photos/2119713/pexels-photo-2119713.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tag: 'Heaven on Earth',
+    tag: 'Southern Tip',
   },
 ];
 
