@@ -183,11 +183,11 @@ export default function Reviews() {
               </button>
               <button
                 onClick={() => {
-                  window.location.href = 'tel:+919791697030';
+                  window.location.href = 'https://wa.me/919791697030?text=Hi! I want to book a trip with Blessings Tours & Travels.';
                 }}
                 className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-3 rounded-full font-bold transition-all duration-200"
               >
-                Call Us Now
+                WhatsApp Us Now
               </button>
             </div>
           </div>

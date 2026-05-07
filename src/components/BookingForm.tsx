@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Send, CheckCircle2, User, Phone, MapPin, Calendar, Users, MessageSquare, Map } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 import { BookingFormData } from '../types';
 
 const DESTINATIONS = [
@@ -43,13 +42,32 @@ export default function BookingForm({ defaultDestination = '' }: BookingFormProp
     setLoading(true);
     setError('');
 
-    const { error: dbError } = await supabase.from('bookings').insert([form]);
-
-    if (dbError) {
-      setError('Something went wrong. Please try again or WhatsApp us directly.');
-    } else {
+    try {
+      // Simulate form submission - in production, this would send to a backend
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // For now, just show success and direct to WhatsApp
       setSuccess(true);
+      
+      // Auto-open WhatsApp after success
+      setTimeout(() => {
+        window.open('https://wa.me/919791697030?text=' + encodeURIComponent(
+          `Hi! I want to book a trip with Blessings Tours & Travels.\n\n` +
+          `Name: ${form.name}\n` +
+          `Phone: ${form.phone}\n` +
+          `Current Location: ${form.current_location}\n` +
+          `Destination: ${form.destination}\n` +
+          `Tour Date: ${form.tour_date}\n` +
+          `Number of Members: ${form.num_members}\n` +
+          `Message: ${form.message}`
+        ), '_blank');
+      }, 2000);
+      
+    } catch (error) {
+      console.error('Booking error:', error);
+      setError('Please WhatsApp us at +91 97916 97030 to book your trip.');
     }
+
     setLoading(false);
   };
 
