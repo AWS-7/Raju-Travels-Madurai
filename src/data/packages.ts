@@ -107,8 +107,10 @@ export const packages: Package[] = [
     badgeColor: 'emerald',
     tieredPricing: [
       { label: 'Sedan (4+1)', price: 10700 },
+      { label: 'SUV (6+1)', price: 11900 },
     ],
     inclusions: [
+      '400 Kms Coverage',
       'Munnar Tea Garden Visit',
       'Mattupetty Dam & Lake',
       'Echo Point & Top Station',
@@ -125,6 +127,7 @@ export const packages: Package[] = [
       'Entry Fees',
       'Food & Meals',
       'Personal Expenses',
+      'Additional Kms: Sedan @ ₹14/km, SUV @ ₹17/km',
     ],
   },
   {
