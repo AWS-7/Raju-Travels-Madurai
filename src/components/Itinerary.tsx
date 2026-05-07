@@ -1,10 +1,10 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MapPin, Star, Utensils, Bike } from 'lucide-react';
-import { goaItinerary } from '../data/packages';
+import { southIndiaItinerary } from '../data/packages';
 
-const dayIcons = [MapPin, Bike, Utensils];
-const dayColors = ['#C9952A', '#0F2C59', '#C9952A'];
+const dayIcons = [MapPin, Bike, Utensils, Star, MapPin];
+const dayColors = ['#C9952A', '#0F2C59', '#C9952A', '#0F2C59', '#C9952A'];
 
 export default function Itinerary() {
   const ref = useRef(null);
@@ -23,10 +23,10 @@ export default function Itinerary() {
             Day-by-Day Guide
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F2C59] mb-4">
-            Goa 3-Day Itinerary
+            South India 5-Day Tour
           </h2>
           <p className="text-gray-500 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
-            Every moment planned, every experience curated — your perfect Goa escape starts here.
+            Every moment planned, every experience curated — your perfect South India journey starts here.
           </p>
         </motion.div>
 
@@ -34,7 +34,7 @@ export default function Itinerary() {
           <div className="absolute left-8 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#C9952A] via-[#0F2C59] to-[#C9952A] sm:-translate-x-0.5" />
 
           <div className="space-y-10">
-            {goaItinerary.map((day, i) => {
+            {southIndiaItinerary.map((day, i) => {
               const Icon = dayIcons[i % dayIcons.length];
               const color = dayColors[i % dayColors.length];
               const isLeft = i % 2 === 0;

@@ -44,7 +44,7 @@ export default function Navbar() {
               <Plane className="w-5 h-5 text-white" fill="white" />
             </div>
             <div className="leading-tight">
-              <span className="block text-white font-bold text-lg tracking-wide">Raju Travels</span>
+              <span className="block text-white font-bold text-lg tracking-wide">Blessings Tours & Travels</span>
               <span className="block text-[#C9952A] text-xs font-medium tracking-widest uppercase">Your Journey Begins Here</span>
             </div>
           </a>
@@ -73,11 +73,11 @@ export default function Navbar() {
               )
             )}
             <a
-              href="tel:+919876543210"
+              href="tel:+919791697030"
               className="flex items-center gap-1.5 text-white/80 hover:text-[#C9952A] text-sm transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span className="hidden lg:inline">+91 98765 43210</span>
+              <span className="hidden lg:inline">+91 97916 97030</span>
             </a>
           </div>
 
@@ -116,11 +116,11 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="tel:+919876543210"
+                href="tel:+919791697030"
                 className="flex items-center gap-2 py-3 px-4 text-white/70 text-sm"
               >
                 <Phone className="w-4 h-4" />
-                +91 98765 43210
+                +91 97916 97030
               </a>
             </div>
           </motion.div>

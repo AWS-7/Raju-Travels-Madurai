@@ -4,22 +4,14 @@ import { packages } from '../data/packages';
 import PackageCard from './PackageCard';
 
 interface PackagesProps {
-  highlightDestination?: string;
   onBook: (packageTitle: string) => void;
 }
 
-export default function Packages({ highlightDestination, onBook }: PackagesProps) {
+export default function Packages({ onBook }: PackagesProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
-  const filtered = highlightDestination
-    ? packages.filter((p) =>
-        p.title.toLowerCase().includes(highlightDestination.toLowerCase()) ||
-        p.subtitle.toLowerCase().includes(highlightDestination.toLowerCase())
-      )
-    : packages;
-
-  const displayed = filtered.length > 0 ? filtered : packages;
+  const displayed = packages;
 
   return (
     <section id="packages" className="py-20 bg-[#F8F6F1]" ref={ref}>
@@ -37,14 +29,9 @@ export default function Packages({ highlightDestination, onBook }: PackagesProps
             Handcrafted Travel Experiences
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-            From romantic getaways to thrilling adventures — every package is designed
-            for comfort, value, and memories that last forever.
+            Complete service from car to bus at minimal rent. Vehicle rental varies by location.
+            We offer all South India tours with professional drivers and comfortable vehicles.
           </p>
-          {highlightDestination && filtered.length === 0 && (
-            <p className="text-[#C9952A] text-sm mt-3 font-medium">
-              No exact match for "{highlightDestination}" — showing all packages.
-            </p>
-          )}
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

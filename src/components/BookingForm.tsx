@@ -132,7 +132,7 @@ export default function BookingForm({ defaultDestination = '' }: BookingFormProp
                         required
                         value={form.phone}
                         onChange={handleChange}
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 97916 97030"
                         className={`${inputClass} pl-10`}
                       />
                     </div>
@@ -285,7 +285,7 @@ export default function BookingForm({ defaultDestination = '' }: BookingFormProp
                 Message us on WhatsApp for instant replies and personalized packages.
               </p>
               <a
-                href={`https://wa.me/919876543210?text=${encodeURIComponent('Hi! I want to book a trip with Raju Travels.')}`}
+                href={`https://wa.me/919791697030?text=${encodeURIComponent('Hi! I want to book a trip with Blessings Tours & Travels.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white py-2.5 px-4 rounded-xl font-bold text-xs transition-colors w-full"
@@ -300,10 +300,10 @@ export default function BookingForm({ defaultDestination = '' }: BookingFormProp
             <div className="bg-[#F8F6F1] rounded-2xl p-5 border border-gray-100">
               <p className="text-[#0F2C59] font-bold text-sm mb-3">Call Us Directly</p>
               <a
-                href="tel:+919876543210"
+                href="tel:+919791697030"
                 className="text-[#C9952A] font-extrabold text-xl hover:text-[#0F2C59] transition-colors block"
               >
-                +91 98765 43210
+                +91 97916 97030
               </a>
               <p className="text-gray-400 text-xs mt-1">Mon – Sun: 9 AM – 9 PM</p>
             </div>

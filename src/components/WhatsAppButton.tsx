@@ -1,9 +1,9 @@
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const WHATSAPP_NUMBER = '919876543210';
+const WHATSAPP_NUMBER = '919791697030';
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  'Hello! I found you on Raju Travels website. I am interested in booking a tour package. Please help me!'
+  'Hello! I found you on Blessings Tours & Travels website. I am interested in booking a tour package. Please help me!'
 );
 
 export default function WhatsAppButton() {

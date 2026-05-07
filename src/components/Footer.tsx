@@ -26,7 +26,7 @@ export default function Footer() {
                 <Plane className="w-5 h-5 text-white" fill="white" />
               </div>
               <div>
-                <span className="block text-white font-bold text-lg">Raju Travels</span>
+                <span className="block text-white font-bold text-lg">Blessings Tours & Travels</span>
                 <span className="block text-[#C9952A] text-xs tracking-widest uppercase">Your Journey Begins Here</span>
               </div>
             </div>
@@ -90,27 +90,41 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919791697030"
                   className="flex items-start gap-3 text-white/50 hover:text-[#C9952A] transition-colors group"
                 >
                   <div className="w-8 h-8 bg-white/5 group-hover:bg-[#C9952A]/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Phone className="w-3.5 h-3.5 text-[#C9952A]" />
                   </div>
                   <div>
-                    <span className="block text-white text-sm font-medium">+91 98765 43210</span>
+                    <span className="block text-white text-sm font-medium">+91 97916 97030</span>
                     <span className="text-xs">Mon–Sun: 9 AM – 9 PM</span>
                   </div>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@rajutravels.in"
+                  href="tel:+916383936813"
+                  className="flex items-start gap-3 text-white/50 hover:text-[#C9952A] transition-colors group"
+                >
+                  <div className="w-8 h-8 bg-white/5 group-hover:bg-[#C9952A]/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Phone className="w-3.5 h-3.5 text-[#C9952A]" />
+                  </div>
+                  <div>
+                    <span className="block text-white text-sm font-medium">+91 63839 36813</span>
+                    <span className="text-xs">Mon–Sun: 9 AM – 9 PM</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:ezekieledinbaro@gmail.com"
                   className="flex items-start gap-3 text-white/50 hover:text-[#C9952A] transition-colors group"
                 >
                   <div className="w-8 h-8 bg-white/5 group-hover:bg-[#C9952A]/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail className="w-3.5 h-3.5 text-[#C9952A]" />
                   </div>
-                  <span className="text-sm text-white self-center">info@rajutravels.in</span>
+                  <span className="text-sm text-white self-center">ezekieledinbaro@gmail.com</span>
                 </a>
               </li>
               <li>
@@ -127,7 +141,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/30 text-xs text-center sm:text-left">
-            © {new Date().getFullYear()} Raju Travels. All rights reserved.
+            © {new Date().getFullYear()} Blessings Tours & Travels. All rights reserved.
           </p>
           <p className="text-white/30 text-xs flex items-center gap-1">
             Made with <Heart className="w-3 h-3 text-red-400 fill-red-400" /> for travelers across India

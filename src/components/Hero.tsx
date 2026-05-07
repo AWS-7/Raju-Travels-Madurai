@@ -1,25 +1,10 @@
-import { useState } from 'react';
-import { Search, MapPin, Star, Users, Award } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { Star, Users, Award, MapPin } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
 
-const popularSearches = ['Goa', 'Manali', 'Kashmir', 'Andaman', 'Ooty', 'Wayanad'];
-
-interface HeroProps {
-  onSearch: (destination: string) => void;
-}
-
-export default function Hero({ onSearch }: HeroProps) {
-  const [search, setSearch] = useState('');
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (search.trim()) onSearch(search.trim());
-  };
-
-  const handleQuickSearch = (dest: string) => {
-    setSearch(dest);
-    onSearch(dest);
-  };
+export default function Hero() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
     <section
@@ -57,7 +42,7 @@ export default function Hero({ onSearch }: HeroProps) {
         >
           Explore India with{' '}
           <span className="text-[#C9952A] relative">
-            Raju Travels
+            Blessings Tours & Travels
             <svg
               className="absolute -bottom-2 left-0 w-full"
               viewBox="0 0 300 12"
@@ -84,50 +69,6 @@ export default function Hero({ onSearch }: HeroProps) {
           2+ years of creating unforgettable journeys. Budget-friendly packages, handcrafted
           itineraries, and memories that last a lifetime.
         </motion.p>
-
-        <motion.form
-          onSubmit={handleSearch}
-          className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto mb-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45 }}
-        >
-          <div className="relative flex-1">
-            <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#C9952A]" />
-            <input
-              type="text"
-              placeholder="Where do you want to go?"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white text-gray-800 font-medium placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C9952A] shadow-xl text-sm sm:text-base"
-            />
-          </div>
-          <button
-            type="submit"
-            className="flex items-center justify-center gap-2 bg-[#C9952A] hover:bg-[#b07f20] text-white px-8 py-4 rounded-2xl font-bold text-sm sm:text-base transition-all duration-200 hover:shadow-xl hover:scale-105 whitespace-nowrap"
-          >
-            <Search className="w-5 h-5" />
-            Search Trips
-          </button>
-        </motion.form>
-
-        <motion.div
-          className="flex flex-wrap items-center justify-center gap-2 mb-14"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-        >
-          <span className="text-white/60 text-xs font-medium">Popular:</span>
-          {popularSearches.map((dest) => (
-            <button
-              key={dest}
-              onClick={() => handleQuickSearch(dest)}
-              className="text-xs bg-white/10 hover:bg-[#C9952A]/30 border border-white/20 hover:border-[#C9952A]/50 text-white/80 hover:text-white px-3 py-1.5 rounded-full transition-all duration-200"
-            >
-              {dest}
-            </button>
-          ))}
-        </motion.div>
 
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto"
