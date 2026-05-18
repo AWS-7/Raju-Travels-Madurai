@@ -1,10 +1,12 @@
 import { useRef } from 'react';
 import { Star, Users, Award, MapPin } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   return (
     <section
@@ -29,7 +31,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 bg-[#C9952A]/20 border border-[#C9952A]/40 rounded-full px-4 py-1.5 mb-6">
             <Star className="w-3.5 h-3.5 text-[#C9952A]" fill="#C9952A" />
             <span className="text-[#C9952A] text-xs font-semibold tracking-widest uppercase">
-              Trusted by 2000+ Happy Travelers
+              {t('hero_trusted')}
             </span>
           </div>
         </motion.div>
@@ -40,9 +42,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          Explore India with{' '}
+          {t('hero_title')}{' '}
           <span className="text-[#C9952A] relative">
-            Blessings Tours & Travels
+            {t('hero_company')}
             <svg
               className="absolute -bottom-2 left-0 w-full"
               viewBox="0 0 300 12"
@@ -66,8 +68,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          2+ years of creating unforgettable journeys. Budget-friendly packages, handcrafted
-          itineraries, and memories that last a lifetime.
+          {t('hero_subtitle')}
         </motion.p>
 
         <motion.div
@@ -77,9 +78,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.75 }}
         >
           {[
-            { icon: Award, label: '2+ Years', sub: 'of Experience' },
-            { icon: Users, label: '2000+', sub: 'Happy Guests' },
-            { icon: MapPin, label: '50+', sub: 'Destinations' },
+            { icon: Award, label: t('hero_stat_years'), sub: t('hero_stat_years_sub') },
+            { icon: Users, label: t('hero_stat_guests'), sub: t('hero_stat_guests_sub') },
+            { icon: MapPin, label: t('hero_stat_destinations'), sub: t('hero_stat_destinations_sub') },
           ].map(({ icon: Icon, label, sub }) => (
             <div
               key={label}

@@ -1,49 +1,55 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Clock, Shield, Car, Users, MapPin, Award } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
-const features = [
-  {
-    icon: Clock,
-    title: '24/7 Service',
-    description: 'Round-the-clock customer support for all your travel needs and emergencies.',
-    color: '#C9952A',
-  },
-  {
-    icon: Shield,
-    title: 'Safe & Secure',
-    description: 'Well-maintained vehicles with experienced drivers ensuring your safety throughout the journey.',
-    color: '#0F2C59',
-  },
-  {
-    icon: Car,
-    title: 'Wide Fleet',
-    description: 'From budget cars to luxury vans, we have the perfect vehicle for every group size and budget.',
-    color: '#C9952A',
-  },
-  {
-    icon: Users,
-    title: 'Expert Drivers',
-    description: 'Professional, courteous drivers with extensive knowledge of South Indian routes and destinations.',
-    color: '#0F2C59',
-  },
-  {
-    icon: MapPin,
-    title: 'Pan-India Coverage',
-    description: 'Serving all major cities and tourist destinations across South India with reliable transportation.',
-    color: '#C9952A',
-  },
-  {
-    icon: Award,
-    title: 'Best Rates',
-    description: 'Competitive pricing with no hidden charges. Transparent billing for complete peace of mind.',
-    color: '#0F2C59',
-  },
-];
+function useFeatures() {
+  const { t } = useLanguage();
+  return [
+    {
+      icon: Clock,
+      title: t('feature_24_7'),
+      description: t('feature_24_7_desc'),
+      color: '#C9952A',
+    },
+    {
+      icon: Shield,
+      title: t('feature_safe'),
+      description: t('feature_safe_desc'),
+      color: '#0F2C59',
+    },
+    {
+      icon: Car,
+      title: t('feature_fleet'),
+      description: t('feature_fleet_desc'),
+      color: '#C9952A',
+    },
+    {
+      icon: Users,
+      title: t('feature_drivers'),
+      description: t('feature_drivers_desc'),
+      color: '#0F2C59',
+    },
+    {
+      icon: MapPin,
+      title: t('feature_coverage'),
+      description: t('feature_coverage_desc'),
+      color: '#C9952A',
+    },
+    {
+      icon: Award,
+      title: t('feature_rates'),
+      description: t('feature_rates_desc'),
+      color: '#0F2C59',
+    },
+  ];
+}
 
 export default function WhyChooseUs() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
+  const features = useFeatures();
 
   return (
     <section className="py-20 bg-[#F8F6F1]" ref={ref}>
@@ -55,13 +61,13 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block bg-[#C9952A]/10 text-[#C9952A] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
-            Why Choose Us
+            {t('why_badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F2C59] mb-4">
-            Your Trusted Travel Partner
+            {t('why_title')}
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-            Experience the difference with our professional service, well-maintained fleet, and commitment to customer satisfaction.
+            {t('why_subtitle')}
           </p>
         </motion.div>
 
@@ -99,10 +105,10 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h3 className="text-2xl sm:text-3xl font-bold mb-4">
-            Ready to Explore South India?
+            {t('cta_title')}
           </h3>
           <p className="text-white/80 mb-6 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who have experienced the beauty of South India with our reliable and comfortable transportation services.
+            {t('cta_subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
@@ -112,7 +118,7 @@ export default function WhyChooseUs() {
               }}
               className="bg-[#C9952A] hover:bg-[#b07f20] text-white px-8 py-3 rounded-full font-bold transition-all duration-200 hover:shadow-lg hover:scale-105"
             >
-              Book Your Trip
+              {t('cta_book')}
             </button>
             <button
               onClick={() => {
@@ -120,7 +126,7 @@ export default function WhyChooseUs() {
               }}
               className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-3 rounded-full font-bold transition-all duration-200"
             >
-              WhatsApp Us Now
+              {t('cta_whatsapp')}
             </button>
           </div>
         </motion.div>

@@ -1,16 +1,22 @@
 import { Plane, Instagram, Facebook, Youtube, Phone, Mail, MapPin, Heart } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
-const quickLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Packages', href: '#packages' },
-  { label: 'Destinations', href: '#destinations' },
-  { label: 'Itinerary', href: '#itinerary' },
-  { label: 'Book Now', href: '#booking' },
-];
+function useQuickLinks() {
+  const { t } = useLanguage();
+  return [
+    { label: t('nav_home'), href: '#home' },
+    { label: t('nav_packages'), href: '#packages' },
+    { label: t('nav_destinations'), href: '#destinations' },
+    { label: t('nav_itinerary'), href: '#itinerary' },
+    { label: t('nav_book_now'), href: '#booking' },
+  ];
+}
 
 const destinations = ['Goa', 'Manali', 'Kashmir', 'Andaman', 'Wayanad', 'Munnar', 'Ooty', 'Kodaikanal'];
 
 export default function Footer() {
+  const { t } = useLanguage();
+  const quickLinks = useQuickLinks();
   const handleNavClick = (href: string) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -27,12 +33,11 @@ export default function Footer() {
               </div>
               <div>
                 <span className="block text-white font-bold text-lg">Blessings Tours & Travels</span>
-                <span className="block text-[#C9952A] text-xs tracking-widest uppercase">Your Journey Begins Here</span>
+                <span className="block text-[#C9952A] text-xs tracking-widest uppercase">{t('tagline')}</span>
               </div>
             </div>
             <p className="text-white/50 text-xs leading-relaxed mb-5">
-              2+ years of experience handling 2000+ guests nationwide. We make travel affordable,
-              memorable, and completely hassle-free.
+              {t('footer_desc')}
             </p>
             <div className="flex gap-3">
               {[
@@ -53,7 +58,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">Quick Links</h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{t('quick_links')}</h4>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.label}>
@@ -69,7 +74,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">Destinations</h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{t('destinations_title_footer')}</h4>
             <ul className="space-y-2.5">
               {destinations.map((dest) => (
                 <li key={dest}>
@@ -86,7 +91,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">Contact Us</h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{t('contact_us')}</h4>
             <ul className="space-y-4">
               <li>
                 <a
@@ -98,7 +103,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <span className="block text-white text-sm font-medium">+91 97916 97030</span>
-                    <span className="text-xs">Mon–Sun: 9 AM – 9 PM</span>
+                    <span className="text-xs">{t('call_time')}</span>
                   </div>
                 </a>
               </li>
@@ -112,7 +117,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <span className="block text-white text-sm font-medium">+91 63839 36813</span>
-                    <span className="text-xs">Mon–Sun: 9 AM – 9 PM</span>
+                    <span className="text-xs">{t('call_time')}</span>
                   </div>
                 </a>
               </li>
@@ -141,10 +146,10 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/30 text-xs text-center sm:text-left">
-            © {new Date().getFullYear()} Blessings Tours & Travels. All rights reserved.
+            © {new Date().getFullYear()} {t('rights')}
           </p>
           <p className="text-white/30 text-xs flex items-center gap-1">
-            Made with <Heart className="w-3 h-3 text-red-400 fill-red-400" /> for travelers across India
+            {t('made_with')} <Heart className="w-3 h-3 text-red-400 fill-red-400" /> {t('for_travelers')}
           </p>
         </div>
       </div>

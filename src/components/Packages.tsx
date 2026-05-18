@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { packages } from '../data/packages';
 import PackageCard from './PackageCard';
+import { useLanguage } from '../context/LanguageContext';
 
 interface PackagesProps {
   onBook: (packageTitle: string) => void;
@@ -10,6 +11,7 @@ interface PackagesProps {
 export default function Packages({ onBook }: PackagesProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   const displayed = packages;
 
@@ -23,14 +25,13 @@ export default function Packages({ onBook }: PackagesProps) {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block bg-[#C9952A]/10 text-[#C9952A] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
-            Our Packages
+            {t('packages_badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F2C59] mb-4">
-            Handcrafted Travel Experiences
+            {t('packages_title')}
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-            Complete service from car to bus at minimal rent. Vehicle rental varies by location.
-            We offer all South India tours with professional drivers and comfortable vehicles.
+            {t('packages_subtitle')}
           </p>
         </motion.div>
 

@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Star, Quote, MapPin, Calendar } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const reviews = [
   {
@@ -68,6 +69,7 @@ const reviews = [
 export default function Reviews() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -96,13 +98,13 @@ export default function Reviews() {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block bg-[#C9952A]/20 text-[#C9952A] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
-            Customer Reviews
+            {t('reviews_badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4">
-            What Our Travelers Say
+            {t('reviews_title')}
           </h2>
           <p className="text-white/60 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-            Real experiences from real customers who trusted Blessings Tours & Travels for their journey across South India.
+            {t('reviews_subtitle')}
           </p>
         </motion.div>
 
@@ -165,11 +167,10 @@ export default function Reviews() {
         >
           <div className="bg-gradient-to-r from-[#C9952A]/20 to-[#b07f20]/20 border border-[#C9952A]/30 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Join Our Happy Travelers!
+              {t('join_travelers')}
             </h3>
             <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-              Over 2000+ satisfied customers have explored South India with us. 
-              Your next adventure is just a call away!
+              {t('join_travelers_text')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
@@ -179,7 +180,7 @@ export default function Reviews() {
                 }}
                 className="bg-[#C9952A] hover:bg-[#b07f20] text-white px-8 py-3 rounded-full font-bold transition-all duration-200 hover:shadow-lg hover:scale-105"
               >
-                Book Your Trip
+                {t('cta_book')}
               </button>
               <button
                 onClick={() => {
@@ -187,7 +188,7 @@ export default function Reviews() {
                 }}
                 className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-3 rounded-full font-bold transition-all duration-200"
               >
-                WhatsApp Us Now
+                {t('cta_whatsapp')}
               </button>
             </div>
           </div>

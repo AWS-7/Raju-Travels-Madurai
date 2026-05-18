@@ -2,10 +2,12 @@ import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Camera, Play, X, Image as ImageIcon, Film, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import { galleryImages, galleryVideos } from '../data/packages';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Gallery() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'photos' | 'videos'>('photos');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
@@ -36,13 +38,13 @@ export default function Gallery() {
         >
           <span className="inline-flex items-center gap-2 bg-[#0F2C59]/10 text-[#0F2C59] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
             <Camera className="w-3.5 h-3.5" />
-            Memories Captured
+            {t('gallery_badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F2C59] mb-4">
-            Gallery & Videos
+            {t('gallery_title')}
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-            Relive the magic through our lens. Explore stunning moments from trips across India.
+            {t('gallery_subtitle')}
           </p>
         </motion.div>
 
@@ -62,7 +64,7 @@ export default function Gallery() {
             }`}
           >
             <ImageIcon className="w-4 h-4" />
-            Photos
+            {t('photos')}
           </button>
           <button
             onClick={() => setActiveTab('videos')}
@@ -73,7 +75,7 @@ export default function Gallery() {
             }`}
           >
             <Film className="w-4 h-4" />
-            Videos
+            {t('videos')}
           </button>
         </motion.div>
 

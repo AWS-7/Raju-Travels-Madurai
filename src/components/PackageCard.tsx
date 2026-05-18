@@ -2,6 +2,7 @@ import { Clock, CheckCircle2, XCircle, ChevronDown, ChevronUp } from 'lucide-rea
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Package } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 interface PackageCardProps {
   pkg: Package;
@@ -10,6 +11,7 @@ interface PackageCardProps {
 
 export default function PackageCard({ pkg, onBook }: PackageCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <motion.div
@@ -79,7 +81,7 @@ export default function PackageCard({ pkg, onBook }: PackageCardProps) {
             className="flex items-center gap-1 text-xs font-semibold text-[#0F2C59] hover:text-[#C9952A] transition-colors"
           >
             {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-            {expanded ? 'Hide Details' : 'View Inclusions / Exclusions'}
+            {expanded ? t('hide_details') : t('view_details')}
           </button>
 
           <AnimatePresence>
@@ -93,7 +95,7 @@ export default function PackageCard({ pkg, onBook }: PackageCardProps) {
               >
                 <div className="pt-3 grid grid-cols-1 gap-3">
                   <div>
-                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Included</p>
+                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">{t('included')}</p>
                     <ul className="space-y-1">
                       {pkg.inclusions.map((item) => (
                         <li key={item} className="flex items-start gap-2 text-xs text-gray-600">
@@ -104,7 +106,7 @@ export default function PackageCard({ pkg, onBook }: PackageCardProps) {
                     </ul>
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Not Included</p>
+                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">{t('not_included')}</p>
                     <ul className="space-y-1">
                       {pkg.exclusions.map((item) => (
                         <li key={item} className="flex items-start gap-2 text-xs text-gray-600">
@@ -125,7 +127,7 @@ export default function PackageCard({ pkg, onBook }: PackageCardProps) {
             onClick={() => onBook(pkg.title)}
             className="w-full bg-[#0F2C59] hover:bg-[#1a4080] text-white py-3 rounded-xl font-bold text-sm transition-all duration-200 hover:shadow-lg group-hover:bg-[#C9952A]"
           >
-            Book This Package
+            {t('book_package')}
           </button>
         </div>
       </div>

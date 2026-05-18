@@ -1,19 +1,25 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Plane, Phone } from 'lucide-react';
+import { Menu, X, Plane, Phone, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
-const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Packages', href: '#packages' },
-  { label: 'Destinations', href: '#destinations' },
-  { label: 'Itinerary', href: '#itinerary' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Book Now', href: '#booking' },
-];
+function useNavLinks() {
+  const { t } = useLanguage();
+  return [
+    { label: t('nav_home'), href: '#home' },
+    { label: t('nav_packages'), href: '#packages' },
+    { label: t('nav_destinations'), href: '#destinations' },
+    { label: t('nav_itinerary'), href: '#itinerary' },
+    { label: t('nav_gallery'), href: '#gallery' },
+    { label: t('nav_book_now'), href: '#booking' },
+  ];
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+  const navLinks = useNavLinks();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -45,20 +51,20 @@ export default function Navbar() {
             </div>
             <div className="leading-tight">
               <span className="block text-white font-bold text-lg tracking-wide">Blessings Tours & Travels</span>
-              <span className="block text-[#C9952A] text-xs font-medium tracking-widest uppercase">Your Journey Begins Here</span>
+              <span className="block text-[#C9952A] text-xs font-medium tracking-widest uppercase">{t('tagline')}</span>
             </div>
           </a>
 
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) =>
-              link.label === 'Book Now' ? (
+            {navLinks.map((link, index) =>
+              index === navLinks.length - 1 ? (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
                   className="bg-[#C9952A] hover:bg-[#b07f20] text-white px-5 py-2 rounded-full font-semibold text-sm transition-all duration-200 hover:shadow-lg hover:scale-105"
                 >
-                  Book Now
+                  {t('nav_book_now')}
                 </a>
               ) : (
                 <a
@@ -72,6 +78,14 @@ export default function Navbar() {
                 </a>
               )
             )}
+            <button
+              onClick={() => setLang(lang === 'en' ? 'ta' : 'en')}
+              className="flex items-center gap-1.5 text-white/80 hover:text-[#C9952A] text-sm transition-colors px-2 py-1 rounded-lg hover:bg-white/10"
+              title={t('language')}
+            >
+              <Globe className="w-4 h-4" />
+              <span className="hidden lg:inline font-semibold">{lang === 'en' ? 'தமிழ்' : 'English'}</span>
+            </button>
             <a
               href="tel:+919791697030"
               className="flex items-center gap-1.5 text-white/80 hover:text-[#C9952A] text-sm transition-colors"
@@ -107,7 +121,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
                   className={`py-3 px-4 rounded-lg font-medium text-sm transition-all duration-200 ${
-                    link.label === 'Book Now'
+                    link.label === t('nav_book_now')
                       ? 'bg-[#C9952A] text-white text-center mt-2'
                       : 'text-white/90 hover:bg-white/10 hover:text-[#C9952A]'
                   }`}

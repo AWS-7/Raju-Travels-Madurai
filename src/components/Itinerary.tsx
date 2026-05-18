@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MapPin, Star, Utensils, Bike } from 'lucide-react';
 import { southIndiaItinerary } from '../data/packages';
+import { useLanguage } from '../context/LanguageContext';
 
 const dayIcons = [MapPin, Bike, Utensils, Star, MapPin];
 const dayColors = ['#C9952A', '#0F2C59', '#C9952A', '#0F2C59', '#C9952A'];
@@ -9,6 +10,7 @@ const dayColors = ['#C9952A', '#0F2C59', '#C9952A', '#0F2C59', '#C9952A'];
 export default function Itinerary() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   return (
     <section id="itinerary" className="py-20 bg-[#F8F6F1]" ref={ref}>
@@ -20,13 +22,13 @@ export default function Itinerary() {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block bg-[#C9952A]/10 text-[#C9952A] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
-            Day-by-Day Guide
+            {t('itinerary_badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F2C59] mb-4">
-            South India 5-Day Tour
+            {t('itinerary_title')}
           </h2>
           <p className="text-gray-500 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
-            Every moment planned, every experience curated — your perfect South India journey starts here.
+            {t('itinerary_subtitle')}
           </p>
         </motion.div>
 
@@ -65,7 +67,7 @@ export default function Itinerary() {
                       <div className="flex items-start justify-between gap-2 mb-3">
                         <div>
                           <span className="text-xs font-bold uppercase tracking-wider" style={{ color }}>
-                            Day {day.day}
+                            {t('day')} {day.day}
                           </span>
                           <h3 className="text-[#0F2C59] font-bold text-lg leading-tight mt-0.5">
                             {day.title}

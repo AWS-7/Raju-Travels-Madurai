@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Packages from './components/Packages';
@@ -22,21 +23,23 @@ function App() {
   };
 
   return (
-    <div className="font-sans antialiased">
-      <Navbar />
-      <Hero />
-      <Packages onBook={handleBook} />
-      <Destinations onBook={handleBook} />
-      <Itinerary />
-      <Gallery />
-      <WhyChooseUs />
-      <Reviews />
-      <div ref={bookingRef}>
-        <BookingForm defaultDestination={bookingDest} />
+    <LanguageProvider>
+      <div className="font-sans antialiased">
+        <Navbar />
+        <Hero />
+        <Packages onBook={handleBook} />
+        <Destinations onBook={handleBook} />
+        <Itinerary />
+        <Gallery />
+        <WhyChooseUs />
+        <Reviews />
+        <div ref={bookingRef}>
+          <BookingForm defaultDestination={bookingDest} />
+        </div>
+        <Footer />
+        <WhatsAppButton />
       </div>
-      <Footer />
-      <WhatsAppButton />
-    </div>
+    </LanguageProvider>
   );
 }
 

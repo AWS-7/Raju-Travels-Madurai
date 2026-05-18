@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MapPin } from 'lucide-react';
 import { destinations } from '../data/packages';
+import { useLanguage } from '../context/LanguageContext';
 
 interface DestinationsProps {
   onBook: (destination: string) => void;
@@ -10,6 +11,7 @@ interface DestinationsProps {
 export default function Destinations({ onBook }: DestinationsProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   return (
     <section id="destinations" className="py-20 bg-white" ref={ref}>
@@ -21,14 +23,13 @@ export default function Destinations({ onBook }: DestinationsProps) {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block bg-[#0F2C59]/10 text-[#0F2C59] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
-            Featured Destinations
+            {t('destinations_badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F2C59] mb-4">
-            India's Most Loved Places
+            {t('destinations_title')}
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-            Explore the diversity of India — from misty hill stations to tropical beaches,
-            we'll take you there with comfort and style.
+            {t('destinations_subtitle')}
           </p>
         </motion.div>
 
@@ -62,7 +63,7 @@ export default function Destinations({ onBook }: DestinationsProps) {
 
               <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-[#C9952A] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-                  Book Now
+                  {t('book_now')}
                 </span>
               </div>
             </motion.button>

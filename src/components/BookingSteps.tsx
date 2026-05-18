@@ -1,42 +1,48 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MessageCircle, CreditCard, FileCheck, Plane } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
-const steps = [
-  {
-    icon: MessageCircle,
-    step: '01',
-    title: 'Enquire & Choose',
-    description: 'Contact us on WhatsApp or fill the booking form. Choose your dream destination and dates.',
-    color: '#C9952A',
-  },
-  {
-    icon: CreditCard,
-    step: '02',
-    title: 'Pay Token Advance',
-    description: 'Confirm your booking with a token advance of just ₹2,500 per person to lock your dates.',
-    color: '#0F2C59',
-    highlight: 'Token: ₹2,500',
-  },
-  {
-    icon: FileCheck,
-    step: '03',
-    title: 'Receive Itinerary',
-    description: 'Get your detailed day-by-day itinerary, hotel confirmations, and train/bus tickets.',
-    color: '#C9952A',
-  },
-  {
-    icon: Plane,
-    step: '04',
-    title: 'Travel & Enjoy!',
-    description: 'Pack your bags! Our team is available 24/7 during your trip for any assistance.',
-    color: '#0F2C59',
-  },
-];
+function useSteps() {
+  const { t } = useLanguage();
+  return [
+    {
+      icon: MessageCircle,
+      step: '01',
+      title: t('step1_title'),
+      description: t('step1_desc'),
+      color: '#C9952A',
+    },
+    {
+      icon: CreditCard,
+      step: '02',
+      title: t('step2_title'),
+      description: t('step2_desc'),
+      color: '#0F2C59',
+      highlight: t('step2_highlight'),
+    },
+    {
+      icon: FileCheck,
+      step: '03',
+      title: t('step3_title'),
+      description: t('step3_desc'),
+      color: '#C9952A',
+    },
+    {
+      icon: Plane,
+      step: '04',
+      title: t('step4_title'),
+      description: t('step4_desc'),
+      color: '#0F2C59',
+    },
+  ];
+}
 
 export default function BookingSteps() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
+  const steps = useSteps();
 
   return (
     <section className="py-20 bg-[#0F2C59] relative overflow-hidden" ref={ref}>
@@ -54,13 +60,13 @@ export default function BookingSteps() {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block bg-[#C9952A]/20 text-[#C9952A] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
-            Simple Process
+            {t('steps_badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Book in 4 Easy Steps
+            {t('steps_title')}
           </h2>
           <p className="text-white/60 max-w-xl mx-auto text-sm sm:text-base">
-            We've made booking your dream vacation as simple as possible. Start your journey today!
+            {t('steps_subtitle')}
           </p>
         </motion.div>
 
@@ -111,11 +117,10 @@ export default function BookingSteps() {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <p className="text-white/80 text-sm sm:text-base mb-2">
-            <span className="text-[#C9952A] font-bold">Note:</span> Balance payment to be made 7 days before departure.
-            We accept UPI, Bank Transfer, and Cash.
+            <span className="text-[#C9952A] font-bold">{t('steps_note')}</span>
           </p>
           <p className="text-white/50 text-xs">
-            Cancellation policy: 50% refund if cancelled 10+ days before departure. No refund within 7 days.
+            {t('steps_cancellation')}
           </p>
         </motion.div>
       </div>
