@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[55vh] sm:min-h-screen flex items-center overflow-hidden"
+      className="relative h-[70px] sm:min-h-screen flex items-center overflow-hidden"
     >
       {/* Hero Background */}
       <div className="absolute inset-0">
@@ -31,7 +31,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-0 sm:py-24 lg:py-32">
         <div className="text-center">
           {/* Left Content */}
           <motion.div
@@ -39,28 +39,28 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-[#C9952A]/15 backdrop-blur-xl border border-[#C9952A]/30 rounded-full px-5 py-2.5 mb-8 mx-auto">
-              <Sparkles className="w-4 h-4 text-[#C9952A]" fill="#C9952A" />
-              <span className="text-[#C9952A] text-xs font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 bg-[#C9952A]/15 backdrop-blur-xl border border-[#C9952A]/30 rounded-full px-3 py-1 mb-3 mx-auto sm:mb-8 sm:px-5 sm:py-2.5 hidden sm:inline-flex">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#C9952A]" fill="#C9952A" />
+              <span className="text-[#C9952A] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
                 Trusted by 2000+ Happy Travelers
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-8">
+            <h1 className="text-xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-2 sm:mb-8">
               Explore India
-              <br />
+              <br className="hidden sm:block" />
               With{' '}
               <span className="text-[#C9952A]">
                 Blessings Tours & Travels
               </span>
             </h1>
 
-            <p className="text-white/85 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            <p className="text-white/85 text-sm md:text-xl max-w-2xl mx-auto mb-0 sm:mb-12 leading-relaxed font-light hidden sm:block">
               11+ years of creating unforgettable journeys with customized tour packages and memorable travel experiences.
             </p>
 
             {/* Trust Points */}
-            <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
+            <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mb-0 sm:mb-12 hidden sm:grid">
               {[
                 { icon: Calendar, text: '11+ Years Experience' },
                 { icon: Users, text: '2000+ Happy Travelers' },
@@ -81,20 +81,20 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-3 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <button
                 onClick={handleExplorePackages}
-                className="w-full sm:w-auto bg-gradient-to-r from-[#C9952A] to-[#b07f20] hover:from-[#b07f20] hover:to-[#9a6a18] text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 shadow-xl"
+                className="w-full sm:w-auto bg-gradient-to-r from-[#C9952A] to-[#b07f20] hover:from-[#b07f20] hover:to-[#9a6a18] text-white px-4 sm:px-10 py-2 sm:py-4 rounded-full font-bold text-sm sm:text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 shadow-xl"
               >
                 Explore Packages
               </button>
               <button
                 onClick={handleBookTrip}
-                className="w-full sm:w-auto bg-white/10 backdrop-blur-xl hover:bg-white/20 border-2 border-white/30 hover:border-[#C9952A]/50 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+                className="w-full sm:w-auto bg-white/10 backdrop-blur-xl hover:bg-white/20 border-2 border-white/30 hover:border-[#C9952A]/50 text-white px-4 sm:px-10 py-2 sm:py-4 rounded-full font-bold text-sm sm:text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 hidden sm:block"
               >
                 Book Your Trip
               </button>
@@ -105,7 +105,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 hidden sm:flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
@@ -119,7 +119,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8F6F1] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-32 bg-gradient-to-t from-[#F8F6F1] to-transparent" />
     </section>
   );
 }
