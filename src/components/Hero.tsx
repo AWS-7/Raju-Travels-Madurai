@@ -23,7 +23,7 @@ export default function Hero() {
       {/* Hero Background */}
       <div className="absolute inset-0">
         <img
-          src="https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://i.pinimg.com/736x/50/19/1a/50191a1b962a0f50d5cbc2f9234dd699.jpg"
           alt="Luxury Travel - India Destinations"
           className="w-full h-full object-cover"
         />
@@ -31,16 +31,15 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div className="text-center">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left"
           >
-            <div className="inline-flex items-center gap-2 bg-[#C9952A]/15 backdrop-blur-xl border border-[#C9952A]/30 rounded-full px-5 py-2.5 mb-8">
+            <div className="inline-flex items-center gap-2 bg-[#C9952A]/15 backdrop-blur-xl border border-[#C9952A]/30 rounded-full px-5 py-2.5 mb-8 mx-auto">
               <Sparkles className="w-4 h-4 text-[#C9952A]" fill="#C9952A" />
               <span className="text-[#C9952A] text-xs font-bold tracking-widest uppercase">
                 Trusted by 2000+ Happy Travelers
@@ -56,12 +55,12 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="text-white/85 text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-light">
+            <p className="text-white/85 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light">
               11+ years of creating unforgettable journeys with customized tour packages and memorable travel experiences.
             </p>
 
             {/* Trust Points */}
-            <div className="grid grid-cols-3 gap-4 mb-12">
+            <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
               {[
                 { icon: Calendar, text: '11+ Years Experience' },
                 { icon: Users, text: '2000+ Happy Travelers' },
@@ -74,7 +73,7 @@ export default function Hero() {
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5"
                 >
-                  <item.icon className="w-8 h-8 text-[#C9952A] mb-3" />
+                  <item.icon className="w-8 h-8 text-[#C9952A] mb-3 mx-auto" />
                   <span className="text-white text-sm font-medium block">{item.text}</span>
                 </motion.div>
               ))}
@@ -82,7 +81,7 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -100,32 +99,6 @@ export default function Hero() {
                 Book Your Trip
               </button>
             </motion.div>
-          </motion.div>
-
-          {/* Right Visual */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block"
-          >
-            <div className="relative">
-              <img
-                src="https://images.pexels.com/photos/2442062/pexels-photo-2442062.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Happy Travelers - India"
-                className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
-              />
-              {/* Decorative Elements */}
-              <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-2xl p-5 border border-gray-100">
-                <div className="flex items-center gap-4">
-                  <CheckCircle className="w-10 h-10 text-[#C9952A]" />
-                  <div>
-                    <p className="text-[#0F2C59] font-bold text-lg">Travel Safe</p>
-                    <p className="text-gray-500 text-sm">100% Verified</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useState, useRef, Suspense, lazy } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
 import HeroStats from './components/HeroStats';
 import Packages from './components/Packages';
 import Destinations from './components/Destinations';
@@ -33,6 +34,7 @@ function App() {
       <div className="font-sans antialiased">
         <Navbar />
         <Hero />
+        <About />
         <HeroStats />
         <Packages onBook={handleBook} />
           <Destinations onBook={handleBook} />
