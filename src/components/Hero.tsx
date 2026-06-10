@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[70vh] sm:min-h-[85vh] flex items-center justify-center overflow-hidden"
     >
       {/* Hero Background */}
       <div
@@ -93,7 +93,7 @@ export default function Hero() {
       />
 
       {/* Hero Content */}
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-20 pb-32">
+      <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-20 sm:pb-32">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -193,7 +193,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-32 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
+        className="absolute bottom-20 sm:bottom-32 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
