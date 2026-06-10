@@ -18,17 +18,36 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
     >
       {/* Hero Background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
         style={{
           backgroundImage:
-            'url(https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+            'url(https://i.pinimg.com/webp87/1200x/3e/60/a9/3e60a94fd5a24019319ee256d5cb10dd.webp)',
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-[#0F2C59]/95 via-[#0F2C59]/80 to-[#1a3a5c]/90" />
+      
+      {/* Responsive background image for mobile */}
+      <picture className="absolute inset-0 -z-10">
+        <source
+          media="(max-width: 640px)"
+          srcSet="https://i.pinimg.com/webp87/1200x/3e/60/a9/3e60a94fd5a24019319ee256d5cb10dd.webp"
+        />
+        <source
+          media="(max-width: 1280px)"
+          srcSet="https://i.pinimg.com/webp87/1200x/3e/60/a9/3e60a94fd5a24019319ee256d5cb10dd.webp"
+        />
+        <img
+          src="https://i.pinimg.com/webp87/1200x/3e/60/a9/3e60a94fd5a24019319ee256d5cb10dd.webp"
+          alt="Blessings Tours and Travels - India Travel Agency"
+          className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+        />
+      </picture>
 
       {/* Animated decorative elements */}
       <motion.div
@@ -95,9 +114,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
           >
-            {t('hero_title')}{' '}
+            Explore India With{' '}
             <span className="text-[#C9952A] relative inline-block">
-              {t('hero_company')}
+              Blessings Tours & Travels
               <svg
                 className="absolute -bottom-2 sm:-bottom-3 left-0 w-full"
                 viewBox="0 0 300 12"

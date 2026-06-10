@@ -10,6 +10,7 @@ function useNavLinks() {
     { label: t('nav_packages'), href: '#packages' },
     { label: t('nav_destinations'), href: '#destinations' },
     { label: t('nav_gallery'), href: '#gallery' },
+    { label: 'FAQ', href: '#faq' },
     { label: t('nav_book_now'), href: '#booking' },
   ];
 }

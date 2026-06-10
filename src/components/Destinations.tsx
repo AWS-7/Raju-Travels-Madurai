@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { MapPin } from 'lucide-react';
 import { destinations } from '../data/packages';
 import { useLanguage } from '../context/LanguageContext';
+import OptimizedImage from './OptimizedImage';
 
 interface DestinationsProps {
   onBook: (destination: string) => void;
@@ -44,7 +45,7 @@ export default function Destinations({ onBook }: DestinationsProps) {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
             >
-              <img
+              <OptimizedImage
                 src={dest.image}
                 alt={dest.name}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

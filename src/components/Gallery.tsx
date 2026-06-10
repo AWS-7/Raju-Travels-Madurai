@@ -3,12 +3,14 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Camera, Play, X, Image as ImageIcon, Film, MapPin, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { galleryImages, galleryVideos } from '../data/packages';
 import { useLanguage } from '../context/LanguageContext';
+import OptimizedImage from './OptimizedImage';
 
 interface GalleryProps {
   limit?: number;
+  onViewAll?: () => void;
 }
 
-export default function Gallery({ limit }: GalleryProps) {
+export default function Gallery({ limit, onViewAll }: GalleryProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const { t } = useLanguage();
@@ -107,9 +109,9 @@ export default function Gallery({ limit }: GalleryProps) {
                     whileHover={{ scale: 1.02 }}
                     onClick={() => openLightbox(i)}
                   >
-                    <img
+                    <OptimizedImage
                       src={img.url}
-                      alt={img.title}
+                      alt={`Blessings Tours and Travels ${img.title} - ${img.location}`}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       loading="lazy"
                     />
@@ -138,8 +140,12 @@ export default function Gallery({ limit }: GalleryProps) {
                 >
                   <button
                     onClick={() => {
-                      const el = document.getElementById('gallery');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      if (onViewAll) {
+                        onViewAll();
+                      } else {
+                        const el = document.getElementById('gallery');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }
                     }}
                     className="inline-flex items-center gap-2 bg-[#0F2C59] hover:bg-[#0a1f3d] text-white px-8 py-3 rounded-full font-semibold text-sm transition-all duration-200 hover:shadow-lg hover:scale-105"
                   >

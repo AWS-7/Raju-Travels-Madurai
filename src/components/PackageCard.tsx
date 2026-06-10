@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Package } from '../types';
 import { useLanguage } from '../context/LanguageContext';
+import OptimizedImage from './OptimizedImage';
 
 interface PackageCardProps {
   pkg: Package;
@@ -20,7 +21,7 @@ export default function PackageCard({ pkg, onBook }: PackageCardProps) {
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       <div className="relative overflow-hidden h-52 sm:h-56">
-        <img
+        <OptimizedImage
           src={pkg.image}
           alt={pkg.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
