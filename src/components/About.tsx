@@ -18,7 +18,7 @@ export default function About() {
             className="relative"
           >
             <img
-              src="https://images.pexels.com/photos/681469/pexels-photo-681469.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="https://i.pinimg.com/736x/99/de/98/99de98eb4e7bd078d39db104da78444e.jpg"
               alt="Blessings Tours & Travels - About Us"
               className="rounded-3xl shadow-2xl w-full h-[450px] object-cover"
             />
