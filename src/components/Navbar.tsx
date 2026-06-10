@@ -9,7 +9,6 @@ function useNavLinks() {
     { label: t('nav_home'), href: '#home' },
     { label: t('nav_packages'), href: '#packages' },
     { label: t('nav_destinations'), href: '#destinations' },
-    { label: t('nav_itinerary'), href: '#itinerary' },
     { label: t('nav_gallery'), href: '#gallery' },
     { label: t('nav_book_now'), href: '#booking' },
   ];
@@ -108,36 +107,78 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#0F2C59] border-t border-white/10 overflow-hidden"
+            initial={{ x: '100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '100%', opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="md:hidden fixed top-0 right-0 h-full w-3/4 max-w-sm bg-[#0F2C59] shadow-2xl z-50 overflow-y-auto"
           >
-            <div className="px-4 py-4 flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`py-3 px-4 rounded-lg font-medium text-sm transition-all duration-200 ${
-                    link.label === t('nav_book_now')
-                      ? 'bg-[#C9952A] text-white text-center mt-2'
-                      : 'text-white/90 hover:bg-white/10 hover:text-[#C9952A]'
-                  }`}
+            <div className="p-6 flex flex-col h-full">
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-[#C9952A] rounded-full flex items-center justify-center">
+                    <Plane className="w-4 h-4 text-white" fill="white" />
+                  </div>
+                  <span className="text-white font-bold text-sm">Blessings Tours</span>
+                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
                 >
-                  {link.label}
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="flex flex-col gap-2 flex-1">
+                {navLinks.map((link, index) => (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: index * 0.05 }}
+                    className={`py-3 px-4 rounded-xl font-medium text-sm transition-all duration-200 ${
+                      link.label === t('nav_book_now')
+                        ? 'bg-gradient-to-r from-[#C9952A] to-[#b07f20] text-white text-center mt-4 shadow-lg'
+                        : 'text-white/90 hover:bg-white/10 hover:text-[#C9952A] border border-transparent hover:border-white/10'
+                    }`}
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <a
+                  href="tel:+919791697030"
+                  className="flex items-center gap-3 py-3 px-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                >
+                  <div className="w-10 h-10 bg-[#C9952A]/20 rounded-full flex items-center justify-center">
+                    <Phone className="w-4 h-4 text-[#C9952A]" />
+                  </div>
+                  <div>
+                    <span className="block text-white text-sm font-medium">+91 97916 97030</span>
+                    <span className="text-xs text-white/50">Call us now</span>
+                  </div>
                 </a>
-              ))}
-              <a
-                href="tel:+919791697030"
-                className="flex items-center gap-2 py-3 px-4 text-white/70 text-sm"
-              >
-                <Phone className="w-4 h-4" />
-                +91 97916 97030
-              </a>
+              </div>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Backdrop */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 bg-black/50 z-40"
+            onClick={() => setIsOpen(false)}
+          />
         )}
       </AnimatePresence>
     </nav>

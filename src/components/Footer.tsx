@@ -7,7 +7,6 @@ function useQuickLinks() {
     { label: t('nav_home'), href: '#home' },
     { label: t('nav_packages'), href: '#packages' },
     { label: t('nav_destinations'), href: '#destinations' },
-    { label: t('nav_itinerary'), href: '#itinerary' },
     { label: t('nav_book_now'), href: '#booking' },
   ];
 }
@@ -150,6 +149,12 @@ export default function Footer() {
           </p>
           <p className="text-white/30 text-xs flex items-center gap-1">
             {t('made_with')} <Heart className="w-3 h-3 text-red-400 fill-red-400" /> {t('for_travelers')}
+          </p>
+        </div>
+
+        <div className="border-t border-white/10 pt-4 mt-4 text-center">
+          <p className="text-white/40 text-xs">
+            Developed By <span className="text-[#C9952A] font-semibold">AWS-Agni Web Solution</span> - <a href="tel:+919080700642" className="text-[#C9952A] hover:text-[#b07f20] transition-colors">9080700642</a>
           </p>
         </div>
       </div>

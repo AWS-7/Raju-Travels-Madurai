@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Packages from './components/Packages';
 import Destinations from './components/Destinations';
-import Itinerary from './components/Itinerary';
 import Gallery from './components/Gallery';
 import WhyChooseUs from './components/WhyChooseUs';
 import BookingForm from './components/BookingForm';
@@ -29,7 +28,6 @@ function App() {
         <Hero />
         <Packages onBook={handleBook} />
         <Destinations onBook={handleBook} />
-        <Itinerary />
         <Gallery />
         <WhyChooseUs />
         <Reviews />

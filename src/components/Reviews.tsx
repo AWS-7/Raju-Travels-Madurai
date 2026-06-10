@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Star, Quote, MapPin, Calendar } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -68,8 +68,30 @@ const reviews = [
 
 export default function Reviews() {
   const ref = useRef(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const { t } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const nextIndex = (prev + 1) % reviews.length;
+        if (scrollRef.current) {
+          const cardWidth = scrollRef.current.scrollWidth / reviews.length;
+          scrollRef.current.scrollTo({
+            left: nextIndex * cardWidth,
+            behavior: 'smooth'
+          });
+        }
+        return nextIndex;
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [inView]);
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -108,11 +130,15 @@ export default function Reviews() {
           </p>
         </motion.div>
 
-        <div className="space-y-6 max-w-4xl mx-auto">
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto max-w-6xl mx-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+          style={{ scrollSnapType: 'x mandatory' }}
+        >
           {reviews.map((review, i) => (
             <motion.div
               key={review.id}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:border-[#C9952A]/40 rounded-2xl p-6 transition-all duration-300 hover:bg-white/15"
+              className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white/10 backdrop-blur-sm border border-white/20 hover:border-[#C9952A]/40 rounded-2xl p-6 transition-all duration-300 hover:bg-white/15 snap-center"
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
