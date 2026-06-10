@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import HeroStats from './components/HeroStats';
 import Packages from './components/Packages';
 import Destinations from './components/Destinations';
+import OurServices from './components/OurServices';
 import CarRental from './components/CarRental';
 import WhyChooseUs from './components/WhyChooseUs';
 import BookingForm from './components/BookingForm';
@@ -35,6 +36,7 @@ function App() {
         <HeroStats />
         <Packages onBook={handleBook} />
           <Destinations onBook={handleBook} />
+          <OurServices />
           <CarRental />
           <Suspense fallback={<div className="h-96 flex items-center justify-center">Loading gallery...</div>}>
           <Gallery limit={showAllGallery ? undefined : 10} onViewAll={() => setShowAllGallery(true)} />

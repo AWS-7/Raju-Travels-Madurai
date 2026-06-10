@@ -31,22 +31,23 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <div className="inline-flex items-center gap-2 bg-[#C9952A]/15 backdrop-blur-xl border border-[#C9952A]/30 rounded-full px-5 py-2.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-[#C9952A]/15 backdrop-blur-xl border border-[#C9952A]/30 rounded-full px-5 py-2.5 mb-8">
               <Sparkles className="w-4 h-4 text-[#C9952A]" fill="#C9952A" />
               <span className="text-[#C9952A] text-xs font-bold tracking-widest uppercase">
                 Trusted by 2000+ Happy Travelers
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-8">
               Explore India
               <br />
               With{' '}
@@ -55,12 +56,12 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="text-white/85 text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-light">
+            <p className="text-white/85 text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-light">
               11+ years of creating unforgettable journeys with customized tour packages and memorable travel experiences.
             </p>
 
             {/* Trust Points */}
-            <div className="grid grid-cols-3 gap-4 mb-10">
+            <div className="grid grid-cols-3 gap-4 mb-12">
               {[
                 { icon: Calendar, text: '11+ Years Experience' },
                 { icon: Users, text: '2000+ Happy Travelers' },
@@ -71,9 +72,9 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4"
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5"
                 >
-                  <item.icon className="w-6 h-6 text-[#C9952A] mb-2" />
+                  <item.icon className="w-8 h-8 text-[#C9952A] mb-3" />
                   <span className="text-white text-sm font-medium block">{item.text}</span>
                 </motion.div>
               ))}
@@ -88,13 +89,13 @@ export default function Hero() {
             >
               <button
                 onClick={handleExplorePackages}
-                className="w-full sm:w-auto bg-gradient-to-r from-[#C9952A] to-[#b07f20] hover:from-[#b07f20] hover:to-[#9a6a18] text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 shadow-xl"
+                className="w-full sm:w-auto bg-gradient-to-r from-[#C9952A] to-[#b07f20] hover:from-[#b07f20] hover:to-[#9a6a18] text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 shadow-xl"
               >
                 Explore Packages
               </button>
               <button
                 onClick={handleBookTrip}
-                className="w-full sm:w-auto bg-white/10 backdrop-blur-xl hover:bg-white/20 border-2 border-white/30 hover:border-[#C9952A]/50 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+                className="w-full sm:w-auto bg-white/10 backdrop-blur-xl hover:bg-white/20 border-2 border-white/30 hover:border-[#C9952A]/50 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
               >
                 Book Your Trip
               </button>
@@ -112,14 +113,14 @@ export default function Hero() {
               <img
                 src="https://images.pexels.com/photos/2442062/pexels-photo-2442062.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Happy Travelers - India"
-                className="rounded-3xl shadow-2xl w-full h-auto object-cover"
+                className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
               />
               {/* Decorative Elements */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-4 border border-gray-100">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-8 h-8 text-[#C9952A]" />
+              <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-2xl p-5 border border-gray-100">
+                <div className="flex items-center gap-4">
+                  <CheckCircle className="w-10 h-10 text-[#C9952A]" />
                   <div>
-                    <p className="text-[#0F2C59] font-bold">Travel Safe</p>
+                    <p className="text-[#0F2C59] font-bold text-lg">Travel Safe</p>
                     <p className="text-gray-500 text-sm">100% Verified</p>
                   </div>
                 </div>

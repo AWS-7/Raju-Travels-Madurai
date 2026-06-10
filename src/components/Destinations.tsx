@@ -34,12 +34,12 @@ export default function Destinations({ onBook }: DestinationsProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="flex overflow-x-auto gap-4 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory scroll-px-4">
           {destinations.map((dest, i) => (
             <motion.button
               key={dest.name}
               onClick={() => onBook(dest.name)}
-              className="relative group rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer text-left"
+              className="relative group rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer text-left flex-shrink-0 w-[85%] sm:w-auto snap-start"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
