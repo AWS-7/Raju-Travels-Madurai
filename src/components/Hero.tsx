@@ -23,7 +23,7 @@ export default function Hero() {
       {/* Hero Background */}
       <div className="absolute inset-0">
         <img
-          src="https://i.pinimg.com/736x/50/19/1a/50191a1b962a0f50d5cbc2f9234dd699.jpg"
+          src="https://i.pinimg.com/736x/c2/36/e3/c236e33a52d64d95c4fe62502f3a5d31.jpg"
           alt="Luxury Travel - India Destinations"
           className="w-full h-full object-cover"
         />
