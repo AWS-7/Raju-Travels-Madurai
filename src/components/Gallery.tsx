@@ -1,16 +1,22 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Camera, Play, X, Image as ImageIcon, Film, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Camera, Play, X, Image as ImageIcon, Film, MapPin, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { galleryImages, galleryVideos } from '../data/packages';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function Gallery() {
+interface GalleryProps {
+  limit?: number;
+}
+
+export default function Gallery({ limit }: GalleryProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'photos' | 'videos'>('photos');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+
+  const displayImages = limit ? galleryImages.slice(0, limit) : galleryImages;
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
@@ -90,7 +96,7 @@ export default function Gallery() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              {galleryImages.map((img, i) => (
+              {displayImages.map((img, i) => (
                 <motion.div
                   key={img.id}
                   className="relative group cursor-pointer rounded-2xl overflow-hidden aspect-square"
