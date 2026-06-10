@@ -88,44 +88,67 @@ export default function Gallery({ limit }: GalleryProps) {
         {/* Photos Grid */}
         <AnimatePresence mode="wait">
           {activeTab === 'photos' && (
-            <motion.div
-              key="photos"
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-            >
-              {displayImages.map((img, i) => (
-                <motion.div
-                  key={img.id}
-                  className="relative group cursor-pointer rounded-2xl overflow-hidden aspect-square"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  whileHover={{ scale: 1.02 }}
-                  onClick={() => openLightbox(i)}
-                >
-                  <img
-                    src={img.url}
-                    alt={img.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="flex items-center gap-1.5 text-[#C9952A] text-xs font-semibold mb-1">
-                      <MapPin className="w-3 h-3" />
-                      {img.location}
+            <>
+              <motion.div
+                key="photos"
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+              >
+                {displayImages.map((img, i) => (
+                  <motion.div
+                    key={img.id}
+                    className="relative group cursor-pointer rounded-2xl overflow-hidden aspect-square"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.4, delay: i * 0.05 }}
+                    whileHover={{ scale: 1.02 }}
+                    onClick={() => openLightbox(i)}
+                  >
+                    <img
+                      src={img.url}
+                      alt={img.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="flex items-center gap-1.5 text-[#C9952A] text-xs font-semibold mb-1">
+                        <MapPin className="w-3 h-3" />
+                        {img.location}
+                      </div>
+                      <h4 className="text-white font-bold text-sm">{img.title}</h4>
                     </div>
-                    <h4 className="text-white font-bold text-sm">{img.title}</h4>
-                  </div>
-                  <div className="absolute top-3 right-3 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ImageIcon className="w-5 h-5 text-white" />
-                  </div>
+                    <div className="absolute top-3 right-3 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ImageIcon className="w-5 h-5 text-white" />
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* View All Button */}
+              {limit && (
+                <motion.div
+                  className="text-center mt-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                >
+                  <button
+                    onClick={() => {
+                      const el = document.getElementById('gallery');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="inline-flex items-center gap-2 bg-[#0F2C59] hover:bg-[#0a1f3d] text-white px-8 py-3 rounded-full font-semibold text-sm transition-all duration-200 hover:shadow-lg hover:scale-105"
+                  >
+                    {t('view_all') || 'View All Photos'}
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </motion.div>
-              ))}
-            </motion.div>
+              )}
+            </>
           )}
 
           {/* Videos Grid */}

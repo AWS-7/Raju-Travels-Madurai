@@ -30,7 +30,7 @@ function App() {
         <HeroStats />
         <Packages onBook={handleBook} />
         <Destinations onBook={handleBook} />
-        <Gallery />
+        <Gallery limit={10} />
         <WhyChooseUs />
         <Reviews />
         <div ref={bookingRef}>
