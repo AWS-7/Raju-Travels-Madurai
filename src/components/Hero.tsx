@@ -18,49 +18,50 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-[70px] sm:min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[85vh] sm:min-h-screen flex items-center overflow-hidden"
     >
       {/* Hero Background */}
       <div className="absolute inset-0">
         <img
           src="https://i.pinimg.com/736x/11/7b/55/117b55497cbf1aaf447b87be05c3b0e3.jpg"
           alt="Luxury Travel - India Destinations"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0F2C59]/90 via-[#0F2C59]/70 to-[#0F2C59]/40" />
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-0 sm:py-24 lg:py-32">
-        <div className="text-center">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+        <div className="text-center flex flex-col justify-center items-center gap-6 sm:gap-8">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="flex flex-col justify-center items-center gap-6 sm:gap-8"
           >
-            <div className="inline-flex items-center gap-2 bg-[#C9952A]/15 backdrop-blur-xl border border-[#C9952A]/30 rounded-full px-3 py-1 mb-3 mx-auto sm:mb-8 sm:px-5 sm:py-2.5 hidden sm:inline-flex">
-              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#C9952A]" fill="#C9952A" />
-              <span className="text-[#C9952A] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 bg-[#C9952A]/15 backdrop-blur-xl border border-[#C9952A]/30 rounded-full px-4 py-2 mb-0 mx-auto sm:px-5 sm:py-2.5">
+              <Sparkles className="w-4 h-4 text-[#C9952A]" fill="#C9952A" />
+              <span className="text-[#C9952A] text-xs font-bold tracking-widest uppercase">
                 Trusted by 2000+ Happy Travelers
               </span>
             </div>
 
-            <h1 className="text-xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-2 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-0">
               Explore India
-              <br className="hidden sm:block" />
+              <br />
               With{' '}
               <span className="text-[#C9952A]">
                 Blessings Tours & Travels
               </span>
             </h1>
 
-            <p className="text-white/85 text-sm md:text-xl max-w-2xl mx-auto mb-0 sm:mb-12 leading-relaxed font-light hidden sm:block">
+            <p className="text-white/85 text-base md:text-xl max-w-2xl mx-auto mb-0 leading-relaxed font-light">
               11+ years of creating unforgettable journeys with customized tour packages and memorable travel experiences.
             </p>
 
             {/* Trust Points */}
-            <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mb-0 sm:mb-12 hidden sm:grid">
+            <div className="grid grid-cols-3 gap-3 max-w-3xl mx-auto mb-0">
               {[
                 { icon: Calendar, text: '11+ Years Experience' },
                 { icon: Users, text: '2000+ Happy Travelers' },
@@ -71,30 +72,30 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5"
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3 sm:p-5"
                 >
-                  <item.icon className="w-8 h-8 text-[#C9952A] mb-3 mx-auto" />
-                  <span className="text-white text-sm font-medium block">{item.text}</span>
+                  <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#C9952A] mb-2 sm:mb-3 mx-auto" />
+                  <span className="text-white text-xs sm:text-sm font-medium block">{item.text}</span>
                 </motion.div>
               ))}
             </div>
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 justify-center"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <button
                 onClick={handleExplorePackages}
-                className="w-full sm:w-auto bg-gradient-to-r from-[#C9952A] to-[#b07f20] hover:from-[#b07f20] hover:to-[#9a6a18] text-white px-4 sm:px-10 py-2 sm:py-4 rounded-full font-bold text-sm sm:text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 shadow-xl"
+                className="w-full sm:w-auto bg-gradient-to-r from-[#C9952A] to-[#b07f20] hover:from-[#b07f20] hover:to-[#9a6a18] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 shadow-xl"
               >
                 Explore Packages
               </button>
               <button
                 onClick={handleBookTrip}
-                className="w-full sm:w-auto bg-white/10 backdrop-blur-xl hover:bg-white/20 border-2 border-white/30 hover:border-[#C9952A]/50 text-white px-4 sm:px-10 py-2 sm:py-4 rounded-full font-bold text-sm sm:text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 hidden sm:block"
+                className="w-full sm:w-auto bg-white/10 backdrop-blur-xl hover:bg-white/20 border-2 border-white/30 hover:border-[#C9952A]/50 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
               >
                 Book Your Trip
               </button>
@@ -105,7 +106,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 hidden sm:flex"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
@@ -119,7 +120,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-32 bg-gradient-to-t from-[#F8F6F1] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-[#F8F6F1] to-transparent" />
     </section>
   );
 }
