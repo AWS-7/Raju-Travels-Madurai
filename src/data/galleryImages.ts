@@ -1,212 +1,121 @@
-export const galleryImages = [
-  {
-    id: 1,
-    url: '/images/1781064459527.jpg',
-    title: 'Temple Visit',
-    location: 'Madurai'
-  },
-  {
-    id: 2,
-    url: '/images/1781064459531.jpg',
-    title: 'Beach Sunset',
-    location: 'Pondicherry'
-  },
-  {
-    id: 3,
-    url: '/images/1781064459538.jpg',
-    title: 'Mountain View',
-    location: 'Munnar'
-  },
-  {
-    id: 4,
-    url: '/images/1781064459543.jpg',
-    title: 'Historical Site',
-    location: 'Thanjavur'
-  },
-  {
-    id: 5,
-    url: '/images/1781064459547.jpg',
-    title: 'Backwaters',
-    location: 'Kerala'
-  },
-  {
-    id: 6,
-    url: '/images/1781064459552.jpg',
-    title: 'City Tour',
-    location: 'Chennai'
-  },
-  {
-    id: 7,
-    url: '/images/1781064459558.jpg',
-    title: 'Hill Station',
-    location: 'Ooty'
-  },
-  {
-    id: 8,
-    url: '/images/1781064459563.jpg',
-    title: 'Pilgrimage',
-    location: 'Rameshwaram'
-  },
-  {
-    id: 9,
-    url: '/images/1781064459568.jpg',
-    title: 'Wildlife Safari',
-    location: 'Bandipur'
-  },
-  {
-    id: 10,
-    url: '/images/1781064459575.jpg',
-    title: 'Waterfall',
-    location: 'Courtallam'
-  },
-  {
-    id: 11,
-    url: '/images/1781064459579.jpg',
-    title: 'Fort Visit',
-    location: 'Tiruchirappalli'
-  },
-  {
-    id: 12,
-    url: '/images/1781064459583.jpg',
-    title: 'Coastal Drive',
-    location: 'Mahabalipuram'
-  },
-  {
-    id: 13,
-    url: '/images/1781064459593.jpg',
-    title: 'Tea Gardens',
-    location: 'Coonoor'
-  },
-  {
-    id: 14,
-    url: '/images/1781064459608.jpg',
-    title: 'Temple Complex',
-    location: 'Kanchipuram'
-  },
-  {
-    id: 15,
-    url: '/images/1781064459618.jpg',
-    title: 'River Cruise',
-    location: 'Kerala'
-  },
-  {
-    id: 16,
-    url: '/images/1781064459624.jpg',
-    title: 'Rock Fort',
-    location: 'Tiruchirappalli'
-  },
-  {
-    id: 17,
-    url: '/images/1781064459635.jpg',
-    title: 'Spice Plantation',
-    location: 'Thekkady'
-  },
-  {
-    id: 18,
-    url: '/images/1781064459648.jpg',
-    title: 'Beach Fun',
-    location: 'Kovalam'
-  },
-  {
-    id: 19,
-    url: '/images/1781064459658.jpg',
-    title: 'Heritage Walk',
-    location: 'Madurai'
-  },
-  {
-    id: 20,
-    url: '/images/1781064459663.jpg',
-    title: 'Sunset Point',
-    location: 'Kodaikanal'
-  },
-  {
-    id: 21,
-    url: '/images/1781064459667.jpg',
-    title: 'Ancient Art',
-    location: 'Darasuram'
-  },
-  {
-    id: 22,
-    url: '/images/1781064459675.jpg',
-    title: 'Forest Trail',
-    location: 'Wayanad'
-  },
-  {
-    id: 23,
-    url: '/images/1781064459690.jpg',
-    title: 'Boating',
-    location: 'Periyar'
-  },
-  {
-    id: 24,
-    url: '/images/1781064459695.jpg',
-    title: 'Cultural Dance',
-    location: 'Chennai'
-  },
-  {
-    id: 25,
-    url: '/images/1781064459700.jpg',
-    title: 'Elephant Safari',
-    location: 'Thekkady'
-  },
-  {
-    id: 26,
-    url: '/images/1781064459717.jpg',
-    title: 'Bridge View',
-    location: 'Rameshwaram'
-  },
-  {
-    id: 27,
-    url: '/images/1781064459738.jpg',
-    title: 'Lake View',
-    location: 'Kodaikanal'
-  },
-  {
-    id: 28,
-    url: '/images/1781064459745.jpg',
-    title: 'Traditional Village',
-    location: 'Kerala'
-  },
-  {
-    id: 29,
-    url: '/images/1781064459755.jpg',
-    title: 'Rock Carvings',
-    location: 'Mahabalipuram'
-  },
-  {
-    id: 30,
-    url: '/images/1781064459762.jpg',
-    title: 'Spice Market',
-    location: 'Kerala'
-  },
-  {
-    id: 31,
-    url: '/images/1781064459768.jpg',
-    title: 'Temple Tower',
-    location: 'Madurai'
-  },
-  {
-    id: 32,
-    url: '/images/1781064459774.jpg',
-    title: 'Coconut Grove',
-    location: 'Kerala'
-  },
-  {
-    id: 33,
-    url: '/images/1781064459779.jpg',
-    title: 'Sunrise',
-    location: 'Kanyakumari'
-  },
-  {
-    id: 34,
-    url: '/images/1781064459785.jpg',
-    title: 'Traditional House',
-    location: 'Kerala'
-  },
-  {
-    id: 35,
-    url: '/images/1781064459795.jpg',
-    title: 'Paddy Fields',
-    location: 'Kerala'
-  }
+const imageFiles = [
+  '1781064459527.jpg',
+  '1781064459531.jpg',
+  '1781064459538.jpg',
+  '1781064459543.jpg',
+  '1781064459547.jpg',
+  '1781064459552.jpg',
+  '1781064459558.jpg',
+  '1781064459563.jpg',
+  '1781064459568.jpg',
+  '1781064459575.jpg',
+  '1781064459579.jpg',
+  '1781064459583.jpg',
+  '1781064459593.jpg',
+  '1781064459608.jpg',
+  '1781064459618.jpg',
+  '1781064459624.jpg',
+  '1781064459635.jpg',
+  '1781064459648.jpg',
+  '1781064459658.jpg',
+  '1781064459663.jpg',
+  '1781064459667.jpg',
+  '1781064459675.jpg',
+  '1781064459690.jpg',
+  '1781064459695.jpg',
+  '1781064459700.jpg',
+  '1781064459717.jpg',
+  '1781064459738.jpg',
+  '1781064459745.jpg',
+  '1781064459755.jpg',
+  '1781064459762.jpg',
+  '1781064459768.jpg',
+  '1781064459774.jpg',
+  '1781064459779.jpg',
+  '1781064459785.jpg',
+  '1781064459795.jpg'
 ];
+
+const titles = [
+  'Temple Visit',
+  'Beach Sunset',
+  'Mountain View',
+  'Historical Site',
+  'Backwaters',
+  'City Tour',
+  'Hill Station',
+  'Pilgrimage',
+  'Wildlife Safari',
+  'Waterfall',
+  'Fort Visit',
+  'Coastal Drive',
+  'Tea Gardens',
+  'Temple Complex',
+  'River Cruise',
+  'Rock Fort',
+  'Spice Plantation',
+  'Beach Fun',
+  'Heritage Walk',
+  'Sunset Point',
+  'Ancient Art',
+  'Forest Trail',
+  'Boating',
+  'Cultural Dance',
+  'Elephant Safari',
+  'Bridge View',
+  'Lake View',
+  'Traditional Village',
+  'Rock Carvings',
+  'Spice Market',
+  'Temple Tower',
+  'Coconut Grove',
+  'Sunrise',
+  'Traditional House',
+  'Paddy Fields'
+];
+
+const locations = [
+  'Madurai',
+  'Pondicherry',
+  'Munnar',
+  'Thanjavur',
+  'Kerala',
+  'Chennai',
+  'Ooty',
+  'Rameshwaram',
+  'Bandipur',
+  'Courtallam',
+  'Tiruchirappalli',
+  'Mahabalipuram',
+  'Coonoor',
+  'Kanchipuram',
+  'Kerala',
+  'Tiruchirappalli',
+  'Thekkady',
+  'Kovalam',
+  'Madurai',
+  'Kodaikanal',
+  'Darasuram',
+  'Wayanad',
+  'Periyar',
+  'Chennai',
+  'Thekkady',
+  'Rameshwaram',
+  'Kodaikanal',
+  'Kerala',
+  'Mahabalipuram',
+  'Kerala',
+  'Kerala',
+  'Madurai',
+  'Kerala',
+  'Kanyakumari',
+  'Kerala',
+  'Kerala'
+];
+
+export const galleryImages = imageFiles.map((file, index) => ({
+  id: index + 1,
+  url: import.meta.env.BASE_URL + `images/${file}`,
+  title: titles[index],
+  location: locations[index]
+}));
