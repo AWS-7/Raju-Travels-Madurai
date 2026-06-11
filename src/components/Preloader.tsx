@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Plane, Sparkles, MapPin } from 'lucide-react';
+import { Plane, Compass, Map, Globe2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface PreloaderProps {
@@ -46,99 +46,177 @@ export default function Preloader({ onComplete }: PreloaderProps) {
     }
   }, [onComplete, isFastConnection]);
 
+  const travelIcons = [
+    { Icon: Plane, delay: 0 },
+    { Icon: Compass, delay: 0.3 },
+    { Icon: Map, delay: 0.6 },
+    { Icon: Globe2, delay: 0.9 },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="fixed inset-0 z-[100] bg-[#0F2C59] flex flex-col items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
     >
-      {/* Background decorative elements */}
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0F2C59] via-[#1a3f7a] to-[#0F2C59]" />
+      
+      {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-[#C9952A]/10"
-            initial={{ x: -100, y: 0, opacity: 0 }}
-            animate={{ x: window.innerWidth + 100, opacity: [0, 0.5, 0] }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              delay: i * 3,
-              ease: 'linear'
-            }}
-            style={{ top: `${20 + i * 15}%` }}
-          >
-            <Plane className="w-12 h-12" />
-          </motion.div>
-        ))}
+        <motion.div
+          className="absolute w-96 h-96 rounded-full bg-[#C9952A]/20 blur-3xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -100, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          style={{ top: '10%', left: '10%' }}
+        />
+        <motion.div
+          className="absolute w-80 h-80 rounded-full bg-[#C9952A]/15 blur-3xl"
+          animate={{
+            x: [0, -80, 0],
+            y: [0, 80, 0],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 2,
+          }}
+          style={{ bottom: '10%', right: '10%' }}
+        />
       </div>
 
       {/* Main preloader content */}
-      <div className="relative z-10 flex flex-col items-center gap-8 px-4">
-        {/* Logo area */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="flex flex-col items-center gap-4"
-        >
-          <div className="w-20 h-20 bg-gradient-to-br from-[#C9952A] to-[#b07f20] rounded-full flex items-center justify-center shadow-2xl">
+      <div className="relative z-10 flex flex-col items-center gap-10 px-6">
+        {/* Icon ring animation */}
+        <div className="relative w-32 h-32">
+          {/* Rotating outer ring */}
+          <motion.div
+            className="absolute inset-0 border-2 border-[#C9952A]/30 rounded-full"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+          />
+          <motion.div
+            className="absolute inset-2 border border-[#C9952A]/50 rounded-full"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+          />
+          
+          {/* Center plane icon */}
+          <div className="absolute inset-0 flex items-center justify-center">
             <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+              className="w-20 h-20 bg-gradient-to-br from-[#C9952A] to-[#b07f20] rounded-2xl flex items-center justify-center shadow-[0_0_40px_rgba(201,149,42,0.4)]"
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 5, -5, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
             >
               <Plane className="w-10 h-10 text-white" fill="white" />
             </motion.div>
           </div>
 
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-white font-serif tracking-wide">
-              Blessings Tours & Travels
-            </h2>
-            <div className="flex items-center justify-center gap-1 mt-1">
-              <Sparkles className="w-3 h-3 text-[#C9952A]" />
-              <span className="text-[#C9952A] text-xs font-medium uppercase tracking-widest">
-                Your Journey Begins Here
-              </span>
-              <Sparkles className="w-3 h-3 text-[#C9952A]" />
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Progress indicator */}
-        <div className="w-72">
-          <div className="h-2 bg-white/10 rounded-full overflow-hidden mb-2">
-            <motion.div
-              className="h-full bg-gradient-to-r from-[#C9952A] to-[#b07f20]"
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.3 }}
-            />
-          </div>
-          <div className="flex items-center justify-between text-xs">
-            <span className="text-white/60">Loading...</span>
-            <span className="text-[#C9952A] font-semibold">{progress}%</span>
-          </div>
-        </div>
-
-        {/* Travel icons animation */}
-        <div className="flex gap-4">
-          {[MapPin, Plane, Sparkles].map((Icon, i) => (
+          {/* Travel icons orbiting */}
+          {travelIcons.map(({ Icon, delay }, i) => (
             <motion.div
               key={i}
-              className="text-[#C9952A]/40"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.4, 1, 0.4] }}
+              className="absolute w-full h-full"
+              animate={{ rotate: 360 }}
               transition={{
-                duration: 1.5,
+                duration: 6,
                 repeat: Infinity,
-                delay: i * 0.2,
-                ease: 'easeInOut'
+                ease: 'linear',
+                delay,
               }}
             >
-              <Icon className="w-5 h-5" />
+              <motion.div
+                className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1"
+                animate={{
+                  scale: [1, 1.3, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: delay + 0.5,
+                }}
+              >
+                <div className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
+                  <Icon className="w-5 h-5 text-[#C9952A]" />
+                </div>
+              </motion.div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Text content */}
+        <div className="text-center space-y-3">
+          <motion.h2
+            className="text-2xl sm:text-3xl font-bold text-white font-serif tracking-wider"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Blessings Tours & Travels
+          </motion.h2>
+          <motion.div
+            className="flex items-center justify-center gap-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#C9952A]" />
+            <span className="text-[#C9952A] text-sm font-medium tracking-[0.3em] uppercase">
+              Crafting Memories
+            </span>
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#C9952A]" />
+          </motion.div>
+        </div>
+
+        {/* Modern progress bar */}
+        <div className="w-full max-w-xs">
+          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-gradient-to-r from-[#C9952A] via-[#d4a030] to-[#C9952A] bg-[length:200%_100%]"
+              initial={{ width: 0 }}
+              animate={{
+                width: `${progress}%`,
+                backgroundPosition: ['0% 50%', '100% 50%'],
+              }}
+              transition={{
+                width: { duration: 0.3 },
+                backgroundPosition: { duration: 2, repeat: Infinity, ease: 'linear' },
+              }}
+            />
+          </div>
+          <motion.div
+            className="flex items-center justify-center gap-2 mt-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <span className="text-white/40 text-xs tracking-widest uppercase">
+              Preparing your journey
+            </span>
+            <span className="text-[#C9952A] text-xs font-semibold">
+              {progress}%
+            </span>
+          </motion.div>
         </div>
       </div>
     </motion.div>
