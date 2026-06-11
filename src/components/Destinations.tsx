@@ -34,7 +34,7 @@ export default function Destinations({ onBook }: DestinationsProps) {
           </p>
         </motion.div>
 
-        <div className="flex flex-nowrap overflow-x-auto touch-pan-x gap-4 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory scroll-px-4">
+        <div className="flex flex-nowrap overflow-x-auto touch-pan-y overscroll-x-contain gap-4 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory scroll-px-4">
           {destinations.map((dest, i) => (
             <motion.button
               key={dest.name}

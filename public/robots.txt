@@ -9,7 +9,7 @@ Allow: /
 # Disallow: /private/
 
 # Sitemap location
-Sitemap: https://blessingstoursandtravels.com/sitemap.xml
+Sitemap: https://blessingstoursandtravels.in/sitemap.xml
 
 # Crawl-delay (optional, to prevent overloading the server)
 # Crawl-delay: 1

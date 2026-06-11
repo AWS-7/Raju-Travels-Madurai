@@ -64,7 +64,7 @@ export default function CarRental() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="https://i.pinimg.com/736x/89/de/d7/89ded76624f85cf9c28b078abf09303a.jpg"
                 alt="Premium car rental with family on scenic road trip"
                 className="w-full h-auto object-cover"
               />
