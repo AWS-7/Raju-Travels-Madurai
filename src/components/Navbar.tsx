@@ -46,11 +46,13 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
             className="flex items-center gap-2 group"
           >
-            <img 
-              src="/images/logo.png" 
-              alt="Blessings Tours & Travels Logo" 
-              className="h-10 w-auto group-hover:scale-105 transition-transform"
-            />
+            <div className="p-1 bg-white rounded-xl group-hover:scale-105 transition-transform">
+              <img 
+                src="/images/logo.png" 
+                alt="Blessings Tours & Travels Logo" 
+                className="h-10 w-auto"
+              />
+            </div>
           </a>
 
           <div className="hidden md:flex items-center gap-6">
@@ -114,11 +116,13 @@ export default function Navbar() {
           >
             <div className="p-6 flex flex-col h-full">
               <div className="flex items-center justify-between mb-8">
-                <img 
-                  src="/images/logo.png" 
-                  alt="Blessings Tours & Travels Logo" 
-                  className="h-10 w-auto"
-                />
+                <div className="p-1 bg-white rounded-xl">
+                  <img 
+                    src="/images/logo.png" 
+                    alt="Blessings Tours & Travels Logo" 
+                    className="h-15 w-auto"
+                  />
+                </div>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
