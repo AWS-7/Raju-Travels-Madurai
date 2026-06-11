@@ -50,7 +50,7 @@ export default function Navbar() {
               <img 
                 src="/images/logo.png" 
                 alt="Blessings Tours & Travels Logo" 
-                className="h-20 w-20"
+                className="h-15 w-20"
               />
             </div>
           </a>
