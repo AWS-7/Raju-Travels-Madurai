@@ -48,7 +48,7 @@ export default function Navbar() {
           >
             <div className="p-2 bg-white rounded-xl group-hover:scale-105 transition-transform">
               <img 
-                src="/images/logo.png" 
+                src="/images/logo-new.png" 
                 alt="Blessings Tours & Travels Logo" 
                 className="h-14 w-auto"
               />
@@ -118,7 +118,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between mb-8">
                 <div className="p-2 bg-white rounded-xl">
                   <img 
-                    src="/images/logo.png" 
+                    src="/images/logo-new.png" 
                     alt="Blessings Tours & Travels Logo" 
                     className="h-12 w-auto"
                   />

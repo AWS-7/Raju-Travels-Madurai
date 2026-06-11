@@ -125,7 +125,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               }}
             >
               <img 
-                src="/images/logo.png" 
+                src="/images/logo-new.png" 
                 alt="Blessings Tours & Travels Logo" 
                 className="w-full h-full object-contain"
               />
