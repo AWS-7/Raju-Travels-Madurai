@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Plane, Compass, Map, Globe2 } from 'lucide-react';
+import { Compass, Map, Globe2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface PreloaderProps {
@@ -47,10 +47,9 @@ export default function Preloader({ onComplete }: PreloaderProps) {
   }, [onComplete, isFastConnection]);
 
   const travelIcons = [
-    { Icon: Plane, delay: 0 },
-    { Icon: Compass, delay: 0.3 },
-    { Icon: Map, delay: 0.6 },
-    { Icon: Globe2, delay: 0.9 },
+    { Icon: Compass, delay: 0 },
+    { Icon: Map, delay: 0.3 },
+    { Icon: Globe2, delay: 0.6 },
   ];
 
   return (
@@ -99,26 +98,25 @@ export default function Preloader({ onComplete }: PreloaderProps) {
       {/* Main preloader content */}
       <div className="relative z-10 flex flex-col items-center gap-10 px-6">
         {/* Icon ring animation */}
-        <div className="relative w-32 h-32">
+        <div className="relative w-48 h-36">
           {/* Rotating outer ring */}
           <motion.div
-            className="absolute inset-0 border-2 border-[#C9952A]/30 rounded-full"
+            className="absolute inset-0 border-2 border-[#C9952A]/30 rounded-3xl"
             animate={{ rotate: 360 }}
             transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
           />
           <motion.div
-            className="absolute inset-2 border border-[#C9952A]/50 rounded-full"
+            className="absolute inset-2 border border-[#C9952A]/50 rounded-3xl"
             animate={{ rotate: -360 }}
             transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
           />
           
-          {/* Center plane icon */}
+          {/* Center logo */}
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div
-              className="w-20 h-20 bg-gradient-to-br from-[#C9952A] to-[#b07f20] rounded-2xl flex items-center justify-center shadow-[0_0_40px_rgba(201,149,42,0.4)]"
+              className="w-full h-full flex items-center justify-center"
               animate={{
-                scale: [1, 1.1, 1],
-                rotate: [0, 5, -5, 0],
+                scale: [1, 1.05, 1],
               }}
               transition={{
                 duration: 3,
@@ -126,7 +124,11 @@ export default function Preloader({ onComplete }: PreloaderProps) {
                 ease: 'easeInOut',
               }}
             >
-              <Plane className="w-10 h-10 text-white" fill="white" />
+              <img 
+                src="/images/logo.png" 
+                alt="Blessings Tours & Travels Logo" 
+                className="w-full h-full object-contain"
+              />
             </motion.div>
           </div>
 
@@ -165,28 +167,20 @@ export default function Preloader({ onComplete }: PreloaderProps) {
         </div>
 
         {/* Text content */}
-        <div className="text-center space-y-3">
-          <motion.h2
-            className="text-2xl sm:text-3xl font-bold text-white font-serif tracking-wider"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Blessings Tours & Travels
-          </motion.h2>
-          <motion.div
-            className="flex items-center justify-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
+        <motion.div
+          className="text-center space-y-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <div className="flex items-center justify-center gap-2">
             <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#C9952A]" />
             <span className="text-[#C9952A] text-sm font-medium tracking-[0.3em] uppercase">
               Crafting Memories
             </span>
             <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#C9952A]" />
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
 
         {/* Modern progress bar */}
         <div className="w-full max-w-xs">

@@ -46,13 +46,11 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
             className="flex items-center gap-2 group"
           >
-            <div className="w-9 h-9 bg-[#C9952A] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Plane className="w-5 h-5 text-white" fill="white" />
-            </div>
-            <div className="leading-tight">
-              <span className="block text-white font-bold text-lg tracking-wide">Blessings Tours & Travels</span>
-              <span className="block text-[#C9952A] text-xs font-medium tracking-widest uppercase">{t('tagline')}</span>
-            </div>
+            <img 
+              src="/images/logo.png" 
+              alt="Blessings Tours & Travels Logo" 
+              className="h-10 w-auto group-hover:scale-105 transition-transform"
+            />
           </a>
 
           <div className="hidden md:flex items-center gap-6">
@@ -116,12 +114,11 @@ export default function Navbar() {
           >
             <div className="p-6 flex flex-col h-full">
               <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-[#C9952A] rounded-full flex items-center justify-center">
-                    <Plane className="w-4 h-4 text-white" fill="white" />
-                  </div>
-                  <span className="text-white font-bold text-sm">Blessings Tours</span>
-                </div>
+                <img 
+                  src="/images/logo.png" 
+                  alt="Blessings Tours & Travels Logo" 
+                  className="h-10 w-auto"
+                />
                 <button
                   onClick={() => setIsOpen(false)}
                   className="text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
