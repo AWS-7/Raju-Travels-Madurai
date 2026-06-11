@@ -120,7 +120,7 @@ export default function Navbar() {
                   <img 
                     src="/images/logo.png" 
                     alt="Blessings Tours & Travels Logo" 
-                    className="h-15 w-auto"
+                    className="h-15 w-15"
                   />
                 </div>
                 <button
