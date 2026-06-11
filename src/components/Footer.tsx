@@ -27,11 +27,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="mb-4">
-              <div className="p-3 bg-white rounded-xl mb-3 inline-block">
+              <div className="mb-3 inline-block">
                 <img 
                   src="/images/logo-new.png" 
                   alt="Blessings Tours & Travels Logo" 
-                  className="h-16 w-auto"
+                  className="h-14 w-auto"
                 />
               </div>
               <p className="text-white/50 text-xs leading-relaxed mb-5">

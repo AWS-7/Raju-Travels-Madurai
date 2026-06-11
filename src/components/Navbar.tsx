@@ -46,11 +46,11 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
             className="flex items-center gap-2 group"
           >
-            <div className="p-2 bg-white rounded-xl group-hover:scale-105 transition-transform">
+            <div className="group-hover:scale-105 transition-transform">
               <img 
                 src="/images/logo-new.png" 
                 alt="Blessings Tours & Travels Logo" 
-                className="h-14 w-auto"
+                className="h-12 w-auto"
               />
             </div>
           </a>
@@ -116,11 +116,11 @@ export default function Navbar() {
           >
             <div className="p-6 flex flex-col h-full">
               <div className="flex items-center justify-between mb-8">
-                <div className="p-2 bg-white rounded-xl">
+                <div>
                   <img 
                     src="/images/logo-new.png" 
                     alt="Blessings Tours & Travels Logo" 
-                    className="h-12 w-auto"
+                    className="h-10 w-auto"
                   />
                 </div>
                 <button

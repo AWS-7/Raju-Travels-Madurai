@@ -114,7 +114,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           {/* Center logo */}
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div
-              className="w-full h-full flex items-center justify-center p-2 bg-white rounded-3xl"
+              className="w-full h-full flex items-center justify-center p-2"
               animate={{
                 scale: [1, 1.05, 1],
               }}
