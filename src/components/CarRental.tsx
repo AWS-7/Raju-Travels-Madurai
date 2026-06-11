@@ -162,7 +162,7 @@ export default function CarRental() {
                   const el = document.getElementById('booking');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-[#C9952A] hover:bg-[#b07f20] text-white px-8 py-3 rounded-full font-bold transition-all duration-200 hover:shadow-lg hover:scale-105"
+                className="btn-travel bg-[#C9952A] hover:bg-[#b07f20] text-white px-8 py-3 rounded-full font-bold transition-all duration-200 hover:shadow-lg hover:scale-105"
               >
                 {t('car_cta_book')}
               </button>
@@ -170,7 +170,7 @@ export default function CarRental() {
                 onClick={() => {
                   window.location.href = 'https://wa.me/919791697030?text=Hi! I want to rent a car for my trip with Blessings Tours & Travels.';
                 }}
-                className="bg-white border-2 border-[#0F2C59] text-[#0F2C59] hover:bg-[#0F2C59] hover:text-white px-8 py-3 rounded-full font-bold transition-all duration-200"
+                className="btn-travel bg-white border-2 border-[#0F2C59] text-[#0F2C59] hover:bg-[#0F2C59] hover:text-white px-8 py-3 rounded-full font-bold transition-all duration-200"
               >
                 {t('car_cta_contact')}
               </button>

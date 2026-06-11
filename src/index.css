@@ -17,6 +17,11 @@
     max-width: 100vw;
   }
 
+   h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+
   * {
     box-sizing: border-box;
     max-width: 100vw;
@@ -45,6 +50,12 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  .btn-travel {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.03em;
   }
 
   /* GPU acceleration for animations */

@@ -79,7 +79,7 @@ export default function PackageCard({ pkg, onBook }: PackageCardProps) {
         <div className="mb-4">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="flex items-center gap-1 text-xs font-semibold text-[#0F2C59] hover:text-[#C9952A] transition-colors"
+            className="btn-travel flex items-center gap-1 text-xs font-semibold text-[#0F2C59] hover:text-[#C9952A] transition-colors"
           >
             {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
             {expanded ? t('hide_details') : t('view_details')}
@@ -126,7 +126,7 @@ export default function PackageCard({ pkg, onBook }: PackageCardProps) {
         <div className="mt-auto">
           <button
             onClick={() => onBook(pkg.title)}
-            className="w-full bg-[#0F2C59] hover:bg-[#1a4080] text-white py-3 rounded-xl font-bold text-sm transition-all duration-200 hover:shadow-lg group-hover:bg-[#C9952A]"
+            className="btn-travel w-full bg-[#0F2C59] hover:bg-[#1a4080] text-white py-3 rounded-xl font-bold text-sm transition-all duration-200 hover:shadow-lg group-hover:bg-[#C9952A]"
           >
             {t('book_package')}
           </button>

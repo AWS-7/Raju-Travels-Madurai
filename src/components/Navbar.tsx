@@ -80,7 +80,7 @@ export default function Navbar() {
             )}
             <button
               onClick={() => setLang(lang === 'en' ? 'ta' : 'en')}
-              className="flex items-center gap-1.5 text-white/80 hover:text-[#C9952A] text-sm transition-colors px-2 py-1 rounded-lg hover:bg-white/10"
+              className="btn-travel flex items-center gap-1.5 text-white/80 hover:text-[#C9952A] text-sm transition-colors px-2 py-1 rounded-lg hover:bg-white/10"
               title={t('language')}
             >
               <Globe className="w-4 h-4" />
