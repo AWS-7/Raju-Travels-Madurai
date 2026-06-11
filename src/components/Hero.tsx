@@ -1,6 +1,7 @@
 import { ArrowDown, Sparkles, CheckCircle, MapPin, Users, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import OptimizedImage from './OptimizedImage';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -22,10 +23,11 @@ export default function Hero() {
     >
       {/* Hero Background */}
       <div className="absolute inset-0">
-        <img
+        <OptimizedImage
           src="https://i.pinimg.com/736x/11/7b/55/117b55497cbf1aaf447b87be05c3b0e3.jpg"
           alt="Luxury Travel - India Destinations"
           className="w-full h-full object-cover object-center"
+          priority={true}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0F2C59]/90 via-[#0F2C59]/70 to-[#0F2C59]/40" />
       </div>

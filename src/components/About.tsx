@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MapPin, Users, Calendar, Heart, Shield, Car } from 'lucide-react';
+import OptimizedImage from './OptimizedImage';
 
 export default function About() {
   const ref = useRef(null);
@@ -17,7 +18,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <img
+            <OptimizedImage
               src="https://i.pinimg.com/736x/99/de/98/99de98eb4e7bd078d39db104da78444e.jpg"
               alt="Blessings Tours & Travels - About Us"
               className="rounded-3xl shadow-2xl w-full h-[450px] object-cover"

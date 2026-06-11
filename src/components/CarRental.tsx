@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Car, Users, MapPin, Users as UsersIcon, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import OptimizedImage from './OptimizedImage';
 
 function useCarServices() {
   const { t } = useLanguage();
@@ -63,7 +64,7 @@ export default function CarRental() {
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img
+              <OptimizedImage
                 src="https://i.pinimg.com/736x/89/de/d7/89ded76624f85cf9c28b078abf09303a.jpg"
                 alt="Premium car rental with family on scenic road trip"
                 className="w-full h-auto object-cover"
