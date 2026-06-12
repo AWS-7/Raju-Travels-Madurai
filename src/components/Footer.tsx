@@ -122,13 +122,13 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:ezekieledinbaro@gmail.com"
+                  href="mailto:contact@blessingstoursandtravels.in"
                   className="flex items-start gap-3 text-white/50 hover:text-[#C9952A] transition-colors group"
                 >
                   <div className="w-8 h-8 bg-white/5 group-hover:bg-[#C9952A]/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail className="w-3.5 h-3.5 text-[#C9952A]" />
                   </div>
-                  <span className="text-sm text-white self-center">ezekieledinbaro@gmail.com</span>
+                  <span className="text-sm text-white self-center">contact@blessingstoursandtravels.in</span>
                 </a>
               </li>
               <li>
@@ -136,7 +136,7 @@ export default function Footer() {
                   <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-3.5 h-3.5 text-[#C9952A]" />
                   </div>
-                  <span className="text-sm text-white/50">India (Pan-India Tours)</span>
+                  <span className="text-sm text-white/50">Periya Samy Veedu, 04/A, Vivekananda 4th St, Mathichiyam, Shenoy Nagar, Madurai, Tamil Nadu 625020</span>
                 </div>
               </li>
             </ul>

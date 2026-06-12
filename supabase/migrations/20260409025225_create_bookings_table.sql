@@ -1,6 +1,6 @@
 
 /*
-  # Create Bookings Table for Raju Travels
+  # Create Bookings Table for Blessings Tours & Travels
 
   ## Summary
   Creates the bookings table to store travel inquiry/booking requests submitted
