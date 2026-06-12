@@ -40,7 +40,7 @@ export default function Destinations({ onBook }: DestinationsProps) {
 
         <div
           ref={scrollRef}
-          className="flex flex-nowrap overflow-x-auto touch-pan-x overscroll-x-contain gap-4 scroll-smooth sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-6 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
+          className="flex flex-nowrap overflow-x-auto touch-auto overscroll-x-contain gap-4 scroll-smooth sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-6 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
         >
           {destinations.map((dest, i) => (
             <motion.button

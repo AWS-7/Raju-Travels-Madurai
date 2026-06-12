@@ -100,7 +100,7 @@ export default function Gallery({ limit, onViewAll }: GalleryProps) {
               <motion.div
                 key="photos"
                 ref={photosScrollRef}
-                className="flex flex-nowrap overflow-x-auto touch-pan-x overscroll-x-contain gap-4 scroll-smooth sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
+                className="flex flex-nowrap overflow-x-auto touch-auto overscroll-x-contain gap-4 scroll-smooth sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -169,7 +169,7 @@ export default function Gallery({ limit, onViewAll }: GalleryProps) {
             <motion.div
               key="videos"
               ref={videosScrollRef}
-              className="flex flex-nowrap overflow-x-auto touch-pan-x overscroll-x-contain gap-4 scroll-smooth sm:grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
+              className="flex flex-nowrap overflow-x-auto touch-auto overscroll-x-contain gap-4 scroll-smooth sm:grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
