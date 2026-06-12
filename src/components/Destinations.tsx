@@ -4,6 +4,7 @@ import { MapPin } from 'lucide-react';
 import { destinations } from '../data/packages';
 import { useLanguage } from '../context/LanguageContext';
 import OptimizedImage from './OptimizedImage';
+import useMobileAutoScroll from '../hooks/useMobileAutoScroll';
 
 interface DestinationsProps {
   onBook: (destination: string) => void;
@@ -11,8 +12,11 @@ interface DestinationsProps {
 
 export default function Destinations({ onBook }: DestinationsProps) {
   const ref = useRef(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const { t } = useLanguage();
+
+  useMobileAutoScroll(scrollRef, destinations.length);
 
   return (
     <section id="destinations" className="py-20 bg-white" ref={ref}>
@@ -34,12 +38,15 @@ export default function Destinations({ onBook }: DestinationsProps) {
           </p>
         </motion.div>
 
-        <div className="flex flex-nowrap overflow-x-auto touch-pan-x overscroll-x-contain gap-4 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-6 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0">
+        <div
+          ref={scrollRef}
+          className="flex flex-nowrap overflow-x-auto touch-pan-x overscroll-x-contain gap-4 scroll-smooth sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-6 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
+        >
           {destinations.map((dest, i) => (
             <motion.button
               key={dest.name}
               onClick={() => onBook(dest.name)}
-              className="relative group rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer text-left flex-none w-[85vw] sm:w-auto snap-start"
+              className="relative group rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer text-left flex-none w-[85vw] sm:w-auto snap-start"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}

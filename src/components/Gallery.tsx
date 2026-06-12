@@ -4,6 +4,7 @@ import { Camera, Play, X, Image as ImageIcon, Film, MapPin, ChevronLeft, Chevron
 import { galleryImages, galleryVideos } from '../data/packages';
 import { useLanguage } from '../context/LanguageContext';
 import OptimizedImage from './OptimizedImage';
+import useMobileAutoScroll from '../hooks/useMobileAutoScroll';
 
 interface GalleryProps {
   limit?: number;
@@ -12,6 +13,8 @@ interface GalleryProps {
 
 export default function Gallery({ limit, onViewAll }: GalleryProps) {
   const ref = useRef(null);
+  const photosScrollRef = useRef<HTMLDivElement | null>(null);
+  const videosScrollRef = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'photos' | 'videos'>('photos');
@@ -19,6 +22,9 @@ export default function Gallery({ limit, onViewAll }: GalleryProps) {
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
   const displayImages = limit ? galleryImages.slice(0, limit) : galleryImages;
+
+  useMobileAutoScroll(photosScrollRef, `${activeTab}-photos-${displayImages.length}`);
+  useMobileAutoScroll(videosScrollRef, `${activeTab}-videos-${galleryVideos.length}`);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
@@ -93,7 +99,8 @@ export default function Gallery({ limit, onViewAll }: GalleryProps) {
             <>
               <motion.div
                 key="photos"
-                className="flex flex-nowrap overflow-x-auto touch-pan-x overscroll-x-contain gap-4 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
+                ref={photosScrollRef}
+                className="flex flex-nowrap overflow-x-auto touch-pan-x overscroll-x-contain gap-4 scroll-smooth sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -102,7 +109,7 @@ export default function Gallery({ limit, onViewAll }: GalleryProps) {
                 {displayImages.map((img, i) => (
                   <motion.div
                     key={img.id}
-                    className="relative group cursor-pointer rounded-2xl overflow-hidden aspect-square flex-none w-[85vw] sm:w-auto snap-start"
+                    className="relative group cursor-pointer rounded-2xl overflow-hidden aspect-[6/5] flex-none w-[85vw] sm:w-auto snap-start"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.4, delay: i * 0.05 }}
@@ -161,7 +168,8 @@ export default function Gallery({ limit, onViewAll }: GalleryProps) {
           {activeTab === 'videos' && (
             <motion.div
               key="videos"
-              className="flex flex-nowrap overflow-x-auto touch-pan-x overscroll-x-contain gap-4 sm:grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
+              ref={videosScrollRef}
+              className="flex flex-nowrap overflow-x-auto touch-pan-x overscroll-x-contain gap-4 scroll-smooth sm:grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden snap-x snap-mandatory px-4 sm:px-0 -mx-4 sm:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
